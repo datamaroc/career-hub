@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Setup Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .step-connector::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        height: 2rem;
+        border-left: 2px dashed #d1d5db;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800">
+    <div class="container mx-auto p-4 sm:p-8 max-w-5xl">
+      <header class="text-center mb-12 sm:mb-16">
+        <div
+          class="inline-flex items-center rounded-full bg-slate-100 p-1.5 mb-6 border-2 border-slate-200/80"
+        >
+          <a
+            href="/portfolio"
+            class="rounded-full bg-white px-5 py-2 text-sm font-semibold text-blue-600 shadow-sm"
+            aria-current="page"
+          >
+            English
+          </a>
+          <a
+            href="/portfolio/ar"
+            class="ml-1 rounded-full px-5 py-2 text-sm font-medium text-slate-500 transition-colors hover:text-slate-900"
+          >
+            العربية
+          </a>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
+          Launch Your Portfolio
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+          A visual, step-by-step guide to get your work online and showcase your
+          skills to the world.
+        </p>
+      </header>
+
+      <!-- Step 1: Prepare Your Toolkit -->
+      <section class="mb-12 sm:mb-16">
+        <div class="relative text-center mb-10">
+          <div
+            class="inline-block bg-blue-100 text-blue-800 text-2xl font-bold px-6 py-3 rounded-full shadow-sm"
+          >
+            Step 1: Prepare Your Toolkit 🛠️
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div
+            class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center items-center h-20">
+              <svg
+                class="w-16 h-16 text-blue-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mt-4 mb-2">
+              Install VS Code
+            </h3>
+            <p class="text-slate-600 mb-4">Your professional code editor.</p>
+            <a
+              href="https://code.visualstudio.com/"
+              target="_blank"
+              class="font-semibold text-blue-600 hover:text-blue-800 transition-colors"
+              >Download Here &rarr;</a
+            >
+          </div>
+          <div
+            class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center items-center h-20">
+              <svg
+                class="w-16 h-16 text-green-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mt-4 mb-2">
+              Install Node.js
+            </h3>
+            <p class="text-slate-600 mb-4">The engine for your site.</p>
+            <a
+              href="https://nodejs.org/"
+              target="_blank"
+              class="font-semibold text-green-600 hover:text-green-800 transition-colors"
+              >Download LTS &rarr;</a
+            >
+          </div>
+          <div
+            class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center items-center h-20">
+              <svg
+                class="w-16 h-16 text-purple-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mt-4 mb-2">
+              Clone Your Project
+            </h3>
+            <p class="text-slate-600 mb-4">Get the code on your machine.</p>
+            <code
+              class="bg-slate-100 text-slate-700 p-2 rounded-md text-sm inline-block"
+              >git clone &lt;url&gt;
+            </code>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: Clone and Install Dependencies -->
+      <section class="mb-12 sm:mb-16">
+        <div class="relative text-center mb-10">
+          <div
+            class="inline-block bg-emerald-100 text-emerald-800 text-2xl font-bold px-6 py-3 rounded-full shadow-sm"
+          >
+            Step 2: Code Teleportation 💻✨
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div
+          class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-200 space-y-6"
+        >
+          <div class="text-slate-700 text-lg leading-relaxed">
+            <p class="mb-3">
+              Time to summon the code gods 🧙‍♂️ and clone your project from GitHub
+              into your machine!
+            </p>
+
+            <p class="font-semibold mb-2">🔁 Clone the Repository:</p>
+            <pre
+              class="bg-slate-100 p-4 rounded text-slate-800 overflow-x-auto text-sm"
+            ><code>git clone https://github.com/datamaroc/portfolio-starter-kit.git</code></pre>
+
+            <p class="font-semibold mt-4 mb-2">
+              📁 Move Into the Project Like a Boss:
+            </p>
+            <pre
+              class="bg-slate-100 p-4 rounded text-slate-800 overflow-x-auto text-sm"
+            ><code>cd portfolio-starter-kit</code></pre>
+
+            <p class="font-semibold mt-4 mb-2">
+              📦 Install the Magic Ingredients:
+            </p>
+            <pre
+              class="bg-slate-100 p-4 rounded text-slate-800 overflow-x-auto text-sm"
+            ><code>npm install</code></pre>
+            <p class="text-sm text-slate-500 italic">
+              💡 This reads your <code>package.json</code> and downloads all the
+              stuff that makes your site look awesome. It’s like cooking, but
+              with code.
+            </p>
+          </div>
+
+          <div class="flex justify-center">
+            <img
+              src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif"
+              alt="developer gif"
+              class="w-64 rounded-lg shadow"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Supabase Setup -->
+      <section class="mb-12 sm:mb-16">
+        <div class="relative text-center mb-10">
+          <div
+            class="inline-block bg-sky-100 text-sky-800 text-2xl font-bold px-6 py-3 rounded-full shadow-sm"
+          >
+            Step 3: Email Magic with Supabase 📧✨
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div
+          class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-200 space-y-8"
+        >
+          <!-- Intro -->
+          <p class="text-slate-700 text-lg leading-relaxed">
+            Want your visitors to actually message you instead of just staring
+            at your portfolio? Let’s summon the backend gods with
+            <strong>Supabase</strong> – it’s like Firebase, but with chill vibes
+            and SQL.
+          </p>
+
+          <!-- Step cards -->
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Sign up -->
+            <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow">
+              <h3 class="text-sky-800 font-semibold mb-2">
+                🔐 1. Sign Up at Supabase
+              </h3>
+              <p>
+                Go to
+                <a
+                  href="https://supabase.com"
+                  target="_blank"
+                  class="text-sky-600 underline"
+                  >supabase.com</a
+                >
+                and create an account. Yes, it’s free. Yes, it’s awesome.
+              </p>
+            </div>
+
+            <!-- Create project -->
+            <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow">
+              <h3 class="text-sky-800 font-semibold mb-2">
+                🏗️ 2. Create a New Project
+              </h3>
+              <ul class="list-disc list-inside text-slate-700">
+                <li>New organization ➜ New project</li>
+                <li>
+                  Call it <code>"My Portfolio"</code> or
+                  <code>"Epic Unicorn App"</code>
+                </li>
+                <li>Set a strong password. 🧠</li>
+              </ul>
+            </div>
+
+            <!-- API keys -->
+            <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow">
+              <h3 class="text-sky-800 font-semibold mb-2">
+                🔑 3. Grab Your API Keys
+              </h3>
+              <p>Navigate to <strong>Settings &gt; API</strong>. Copy your:</p>
+              <ul class="list-disc list-inside text-slate-700 mt-2">
+                <li><code>Project URL</code></li>
+                <li><code>anon public key</code></li>
+              </ul>
+            </div>
+
+            <!-- .env -->
+            <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow">
+              <h3 class="text-sky-800 font-semibold mb-2">
+                🧾 4. Create .env File
+              </h3>
+              <p class="mb-2">
+                Inside your root folder, create a <code>.env</code> file:
+              </p>
+              <pre
+                class="bg-slate-100 p-3 rounded text-sm text-slate-800 overflow-x-auto"
+              >
+VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+        </pre
+              >
+              <p class="text-sm text-slate-500 italic">
+                📝 Replace with your real keys. No cheating!
+              </p>
+            </div>
+
+            <!-- Table setup -->
+            <div
+              class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow md:col-span-2"
+            >
+              <h3 class="text-sky-800 font-semibold mb-2">
+                📬 5. Create Messages Table
+              </h3>
+              <p>In the Supabase dashboard:</p>
+              <ul class="list-disc list-inside text-slate-700 mt-2">
+                <li>Go to <strong>Table Editor</strong></li>
+                <li>
+                  Click <code>New Table</code>, name it <code>messages</code>
+                </li>
+                <li>
+                  Add 4 columns: <code>name</code>, <code>email</code>,
+                  <code>subject</code>, <code>message</code> – all text fields
+                </li>
+              </ul>
+              <p class="mt-2 text-sm text-slate-500 italic">
+                📨 This is where your fans will drop their love notes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 4: Run Portfolio Locally -->
+      <section class="mb-20 sm:mb-24">
+        <div class="relative text-center mb-12">
+          <div
+            class="inline-block bg-gradient-to-tr from-fuchsia-200 via-rose-100 to-pink-100 text-fuchsia-900 text-2xl font-extrabold px-8 py-4 rounded-full shadow-md tracking-tight"
+          >
+            Step 4: Run Your Portfolio Locally 🚀
+          </div>
+          <div class="step-connector"></div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-white via-slate-50 to-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl transition hover:shadow-2xl duration-300 space-y-10 max-w-5xl mx-auto"
+        >
+          <!-- Intro -->
+          <p class="text-slate-700 text-lg leading-relaxed">
+            You're one command away from seeing your masterpiece come to life.
+            Let’s launch your local development environment in style.
+          </p>
+
+          <!-- Step 1: Start dev server -->
+          <div class="flex items-start gap-4 sm:gap-6">
+            <div
+              class="flex-shrink-0 bg-fuchsia-100 text-fuchsia-700 rounded-full w-12 h-12 flex items-center justify-center text-xl shadow"
+            >
+              1
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">
+                Start the Development Server
+              </h3>
+              <pre
+                class="bg-slate-100 border border-slate-200 text-slate-800 rounded-md px-3 pt-4 text-sm font-mono overflow-x-auto shadow-sm"
+              >
+npm run dev
+        </pre
+              >
+              <p class="text-sm text-slate-500 mt-2 italic">
+                This wakes up your project like morning coffee ☕. It’ll open a
+                port for your portfolio preview.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2: Open browser -->
+          <div class="flex items-start gap-4 sm:gap-6">
+            <div
+              class="flex-shrink-0 bg-blue-100 text-blue-700 rounded-full w-12 h-12 flex items-center justify-center text-xl shadow"
+            >
+              2
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">
+                Open in Your Browser
+              </h3>
+              <p class="text-slate-700 text-base mb-2">
+                Go to:
+                <code
+                  class="bg-slate-100 px-2 py-1 rounded text-slate-900 font-mono"
+                  >http://localhost:8080</code
+                >
+              </p>
+              <p class="text-sm text-slate-500 italic">
+                Or whatever the terminal tells you — it's the boss here 🧠.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 5: Personalizing Portfolio -->
+      <section class="mb-20 sm:mb-24">
+        <div class="relative text-center mb-12">
+          <div
+            class="inline-block bg-gradient-to-r from-yellow-100 via-amber-100 to-orange-100 text-yellow-900 text-2xl font-extrabold px-8 py-4 rounded-full shadow-md tracking-tight"
+          >
+            Step 5: Personalize Your Portfolio 🎨
+          </div>
+          <div class="step-connector"></div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-white via-slate-50 to-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl transition hover:shadow-2xl duration-300 space-y-10 max-w-5xl mx-auto"
+        >
+          <!-- Intro -->
+          <div class="text-center">
+            <p class="text-xl text-slate-700 sm:text-2xl font-medium mb-2">
+              This is where the magic happens. 🪄
+            </p>
+            <p class="text-slate-500">
+              Inject your personality, skills, and style into your portfolio —
+              it’s your story, told with code.
+            </p>
+          </div>
+
+          <!-- Step 1: Update Data Files -->
+          <div
+            class="bg-yellow-50 p-6 rounded-2xl border border-yellow-200 shadow-inner"
+          >
+            <h3
+              class="text-yellow-900 font-bold text-lg mb-3 flex items-center gap-2"
+            >
+              📂 Update Your Info in
+              <code
+                class="bg-white text-yellow-800 px-2 py-1 rounded font-mono text-sm"
+                >src/data</code
+              >
+            </h3>
+            <ul
+              class="list-disc list-inside text-slate-700 text-base space-y-1"
+            >
+              <li>
+                <code class="font-mono text-yellow-800">user.ts</code>: name,
+                title, email, socials
+              </li>
+              <li>
+                <code class="font-mono text-yellow-800">projects.ts</code>: show
+                off your work
+              </li>
+              <li>
+                <code class="font-mono text-yellow-800">skills.ts</code>: update
+                tools & certifications
+              </li>
+              <li>
+                <code class="font-mono text-yellow-800">education.ts</code>:
+                school flex
+              </li>
+              <li>
+                <code class="font-mono text-yellow-800">services.ts</code>: what
+                you offer to clients
+              </li>
+            </ul>
+
+            <!-- Pro Tip -->
+            <div
+              class="mt-6 p-4 bg-white border-l-4 border-yellow-400 rounded shadow-sm"
+            >
+              <p class="text-sm text-slate-600 italic">
+                💡 Pro Tip: Copy the content of these files along with your CV
+                and ask ChatGPT or Gemini to align everything for you — like
+                your own digital assistant.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2: Update Images -->
+          <div
+            class="bg-orange-50 p-6 rounded-2xl border border-orange-200 shadow-inner"
+          >
+            <h3
+              class="text-orange-900 font-bold text-lg mb-3 flex items-center gap-2"
+            >
+              🖼️ Update Your Images
+            </h3>
+            <ul
+              class="list-disc list-inside text-slate-700 text-base space-y-1"
+            >
+              <li>
+                <code class="font-mono text-orange-800"
+                  >public/images/profile.png</code
+                >: replace with your own photo
+              </li>
+              <li>
+                <code class="font-mono text-orange-800">public/projects/</code>:
+                add images of your projects
+              </li>
+              <li>
+                Match file names with those used in
+                <code class="font-mono text-orange-800">projects.ts</code>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Step 3: Update HTML Metadata -->
+          <div
+            class="bg-yellow-50 p-6 rounded-2xl border border-yellow-200 shadow-inner"
+          >
+            <h3
+              class="text-yellow-900 font-bold text-lg mb-3 flex items-center gap-2"
+            >
+              📝 Update Your HTML Metadata
+            </h3>
+            <p class="text-slate-700 text-base">
+              Open <code class="font-mono text-yellow-800">index.html</code> and
+              update:
+            </p>
+            <ul
+              class="list-disc list-inside text-slate-700 text-base mt-2 space-y-1"
+            >
+              <li><code>&lt;title&gt;</code> — Your full name or role</li>
+              <li>
+                <code>&lt;meta name="description"&gt;</code> — A short summary
+                of you or your brand
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12 sm:mb-16">
+        <div class="relative text-center mb-10">
+          <div
+            class="inline-block bg-orange-100 text-orange-800 text-2xl font-bold px-6 py-3 rounded-full shadow-sm"
+          >
+            Optional Step: Let Others Book a Meeting with You 🗓️
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div
+          class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-200 space-y-6"
+        >
+          <p class="text-slate-700 text-lg leading-relaxed">
+            Make it super easy for potential clients or employers to schedule a
+            meeting with you. We'll use <strong>Calendly</strong> for free and
+            easy appointment booking.
+          </p>
+
+          <div
+            class="bg-orange-50 p-6 rounded-xl border border-orange-200 shadow-inner"
+          >
+            <h3 class="text-orange-800 font-semibold mb-3">
+              Set Up Your Calendly Link
+            </h3>
+            <ol class="list-decimal list-inside space-y-3 text-slate-700">
+              <li>
+                Go to
+                <a
+                  href="https://calendly.com"
+                  target="_blank"
+                  class="text-orange-600 underline"
+                  >calendly.com</a
+                >
+                and sign up for a free account.
+              </li>
+              <li>
+                Follow the setup to create your first event type, like a
+                "30-minute Meeting".
+              </li>
+              <li>
+                Find and copy your personal Calendly link. It will look like
+                this:
+              </li>
+            </ol>
+            <pre
+              class="bg-slate-100 p-3 rounded text-sm text-slate-800 overflow-x-auto mt-3 text-left"
+            ><code dir="ltr">https://calendly.com/your-username/30min</code></pre>
+            <p class="mt-4 text-sm text-slate-500 italic">
+              💡 Add this link to `src/data/user.ts` in your portfolio.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 6: Deploy to GitHub & Vercel -->
+      <section class="mb-20 sm:mb-24">
+        <div class="relative text-center mb-12">
+          <div
+            class="inline-block bg-gradient-to-r from-indigo-100 via-sky-100 to-cyan-100 text-indigo-900 text-2xl font-extrabold px-8 py-4 rounded-full shadow-md tracking-tight"
+          >
+            Step 6: Deploy to the World 🌍
+          </div>
+          <div class="step-connector"></div>
+        </div>
+
+        <div
+          class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl space-y-10 max-w-5xl mx-auto"
+        >
+          <!-- Intro -->
+          <div class="text-center">
+            <p class="text-xl text-slate-700 sm:text-2xl font-medium">
+              Let’s blast your site into the internet universe — so your future
+              clients and employers can find you.
+            </p>
+            <p class="text-slate-500 mt-1">
+              We’ll use GitHub to store your code and Vercel to host it... for
+              free!
+            </p>
+          </div>
+
+          <!-- GitHub Section -->
+          <div
+            class="bg-indigo-50 p-6 rounded-2xl border border-indigo-200 shadow-inner"
+          >
+            <h3
+              class="text-indigo-900 font-bold text-lg mb-4 flex items-center gap-2"
+            >
+              🚀 Push to GitHub
+            </h3>
+            <ol
+              class="list-decimal list-inside space-y-3 text-slate-700 text-base"
+            >
+              <li>
+                <span class="font-semibold">Create a New Repository</span>: Go
+                to
+                <a
+                  href="https://github.com/new"
+                  target="_blank"
+                  class="text-indigo-600 underline"
+                  >github.com</a
+                >
+                and make an empty repo. Don't add README or .gitignore.
+              </li>
+              <li>
+                <span class="font-semibold">Remove Old Git History</span>
+                (optional reset):
+                <pre
+                  class="bg-white border border-slate-200 rounded p-3 text-sm font-mono text-slate-800 overflow-x-auto mt-2"
+                >
+rm -rf .git
+# On Windows:
+rd /s /q .git
+          </pre
+                >
+              </li>
+              <li>
+                <span class="font-semibold">Initialize and Push:</span>
+                <pre
+                  class="bg-white border border-slate-200 rounded p-3 text-sm font-mono text-slate-800 overflow-x-auto"
+                >
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/your-username/your-repo.git
+git push -u origin main
+          </pre
+                >
+                <p class="text-sm text-slate-500 italic mt-1">
+                  🧠 Replace <code>your-username</code> and
+                  <code>your-repo</code> with your real details.
+                </p>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Vercel Section -->
+          <div
+            class="bg-sky-50 p-6 rounded-2xl border border-sky-200 shadow-inner"
+          >
+            <h3
+              class="text-sky-900 font-bold text-lg mb-4 flex items-center gap-2"
+            >
+              ☁️ Host on Vercel
+            </h3>
+            <ol
+              class="list-decimal list-inside space-y-4 text-slate-700 text-base"
+            >
+              <li>
+                Go to
+                <a
+                  href="https://vercel.com"
+                  target="_blank"
+                  class="text-sky-600 underline"
+                  >vercel.com</a
+                >
+                and sign up with GitHub.
+              </li>
+              <li>
+                From your Vercel dashboard, click
+                <strong>"Add New ➜ Project"</strong>.
+              </li>
+              <li>
+                Select your portfolio repo and click <strong>Import</strong>.
+              </li>
+              <li class="bg-sky-100 p-3 rounded-lg border border-sky-200">
+                <span class="font-semibold text-sky-800"
+                  >Add Environment Variables (Crucial!):</span
+                >
+                <p class="mt-1">
+                  Before deploying, expand the "Environment Variables" section.
+                  You must copy the keys from your local <code>.env</code> file.
+                </p>
+                <ul
+                  class="list-disc list-inside mt-2 ml-4 text-slate-600 space-y-1"
+                >
+                  <li>Add <code>VITE_SUPABASE_URL</code> and its value.</li>
+                  <li>
+                    Add <code>VITE_SUPABASE_ANON_KEY</code> and its value.
+                  </li>
+                </ul>
+                <p class="text-xs text-slate-500 italic mt-2">
+                  🔒 This step securely connects your live site to Supabase so
+                  your contact form will work.
+                </p>
+              </li>
+              <li>
+                Vercel will auto-detect Vite. Now, just click
+                <strong>Deploy</strong>. Easy win!
+              </li>
+            </ol>
+
+            <div
+              class="mt-4 p-4 bg-white border-l-4 border-sky-400 rounded shadow-sm"
+            >
+              <p class="text-sm text-slate-600 italic">
+                🎉 Once deployed, your site will be live at
+                <code>yourproject.vercel.app</code>. Time to celebrate!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 7: Add a Custom Domain -->
+      <section class="mb-24 sm:mb-28">
+        <div class="relative text-center mb-12">
+          <div
+            class="inline-block bg-gradient-to-r from-teal-100 via-emerald-100 to-lime-100 text-teal-900 text-2xl font-extrabold px-8 py-4 rounded-full shadow-md tracking-tight"
+          >
+            Step 7 (Optional): Add a Custom Domain 🌐
+          </div>
+        </div>
+
+        <div
+          class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl space-y-10 max-w-4xl mx-auto"
+        >
+          <!-- Intro -->
+          <div class="text-center">
+            <p class="text-xl text-slate-700 sm:text-2xl font-medium">
+              Want your portfolio at <strong>yourname.com</strong>? Let’s make
+              it official.
+            </p>
+            <p class="text-slate-500 mt-1">
+              This step is totally optional, but gives your site a pro touch 💼
+            </p>
+          </div>
+
+          <!-- Steps -->
+          <div
+            class="bg-lime-50 p-6 rounded-2xl border border-lime-200 shadow-inner"
+          >
+            <ol
+              class="list-decimal list-inside space-y-4 text-slate-700 text-base"
+            >
+              <li>
+                <span class="font-semibold">Buy a domain</span> from a registrar
+                like
+                <a
+                  href="https://www.namecheap.com"
+                  target="_blank"
+                  class="text-emerald-600 underline"
+                  >Namecheap</a
+                >
+                or
+                <a
+                  href="https://www.godaddy.com"
+                  target="_blank"
+                  class="text-emerald-600 underline"
+                  >GoDaddy</a
+                >.
+              </li>
+              <li>
+                In Vercel, go to your project settings →
+                <strong>Domains</strong> tab.
+              </li>
+              <li>
+                Click <strong>Add</strong> and type your domain (e.g.,
+                <code>yourname.com</code>).
+              </li>
+              <li>
+                Follow Vercel's instructions to update the DNS records at your
+                registrar.
+              </li>
+            </ol>
+
+            <div
+              class="mt-4 p-4 bg-white border-l-4 border-emerald-400 rounded shadow-sm"
+            >
+              <p class="text-sm text-slate-600 italic">
+                🌍 Your portfolio will now live at your custom domain — sleek,
+                professional, and unforgettable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final Congratulations -->
+      <section class="text-center mb-20">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">
+          🎉 Congratulations
+        </h2>
+        <p class="text-lg text-slate-700 max-w-xl mx-auto">
+          You now have a live, professional portfolio! Keep it updated, share it
+          with others, and good luck on your journey.
+        </p>
+      </section>
+
+      <!-- remaining steps truncated for brevity -->
+    </div>
+  </body>
+</html>

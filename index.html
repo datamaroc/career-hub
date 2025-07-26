@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مركز الانطلاق الوظيفي للطلاب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+        background-color: #f7f9fc;
+      }
+      .guide-card {
+        border-radius: 1.25rem; /* rounded-2xl */
+        padding: 2rem;
+        transition: all 0.35s ease;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        /* The gradient is now the default background */
+        background-image: var(--card-gradient);
+        color: white; /* All text inside is white by default */
+      }
+      .guide-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+        filter: brightness(1.1); /* Makes the card slightly brighter on hover */
+      }
+      .card-content {
+        position: relative;
+        z-index: 10;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .guide-card h3 {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds depth to text */
+      }
+      .guide-card p {
+        opacity: 0.9; /* Slightly transparent text for a softer look */
+        flex-grow: 1;
+      }
+      .guide-card .icon {
+        margin-bottom: 1.5rem;
+        transition: transform 0.35s ease;
+      }
+      .guide-card:hover .icon {
+        transform: scale(1.15) rotate(-10deg);
+      }
+      .arrow-link {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        align-self: flex-start; /* Aligns button to the start of the flex container */
+        transition: background-color 0.35s ease;
+      }
+      .guide-card:hover .arrow-link {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+      .arrow-link span {
+        transition: transform 0.35s ease;
+      }
+      .guide-card:hover .arrow-link span {
+        transform: translateX(-4px);
+      }
+    </style>
+  </head>
+  <body class="text-slate-700">
+    <div class="container mx-auto max-w-6xl px-4 py-12 sm:py-20">
+      <!-- Header -->
+      <header class="text-center mb-12 sm:mb-16">
+        <h1
+          class="text-4xl sm:text-5xl font-black text-slate-900 mb-4 tracking-tight"
+        >
+          مركز الانطلاق الوظيفي
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+          مجموعتك المتكاملة من الأدلة لبناء مستقبل مهني ناجح. اختر دليلك وانطلق
+          نحو التميز.
+        </p>
+      </header>
+
+      <!-- Guide Links Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Portfolio Guide -->
+        <a
+          href="/portfolio"
+          class="guide-card"
+          style="--card-gradient: linear-gradient(45deg, #6366f1, #8b5cf6)"
+        >
+          <div class="card-content">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+              />
+            </svg>
+            <h3 class="text-2xl font-bold mb-2">دليل البورتفوليو</h3>
+            <p class="mb-6">
+              حوّل مشاريعك إلى قصة نجاح. تعلم كيف تبني معرض أعمال احترافي يعرض
+              مهاراتك الحقيقية ويفتح لك أبواب الفرص.
+            </p>
+            <div
+              class="mt-auto font-semibold flex items-center gap-2 arrow-link"
+            >
+              ابدأ من هنا
+              <span class="text-2xl transition-transform">&larr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- LinkedIn Guide -->
+        <a
+          href="/linkedin"
+          class="guide-card"
+          style="--card-gradient: linear-gradient(45deg, #0ea5e9, #3b82f6)"
+        >
+          <div class="card-content">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 icon"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              />
+            </svg>
+            <h3 class="text-2xl font-bold mb-2">دليل LinkedIn</h3>
+            <p class="mb-6">
+              بروفايلك هو علامتك التجارية. اكتشف أسرار بناء حساب LinkedIn قوي
+              يجذب أنظار مسؤولي التوظيف ويجعلك خبيرًا في مجالك.
+            </p>
+            <div
+              class="mt-auto font-semibold flex items-center gap-2 arrow-link"
+            >
+              اصقل بروفايلك
+              <span class="text-2xl transition-transform">&larr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- CV Guide -->
+        <a
+          href="/cv"
+          class="guide-card"
+          style="--card-gradient: linear-gradient(45deg, #10b981, #22c55e)"
+        >
+          <div class="card-content">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            <h3 class="text-2xl font-bold mb-2">دليل السيرة الذاتية (CV)</h3>
+            <p class="mb-6">
+              سيرتك الذاتية هي تذكرتك الأولى للمقابلة. تعلم كيف تصمم CV يتجاوز
+              أنظمة الفلترة الآلية (ATS) ويقنع المدراء بقيمتك.
+            </p>
+            <div
+              class="mt-auto font-semibold flex items-center gap-2 arrow-link"
+            >
+              اكتب سيرتك الآن
+              <span class="text-2xl transition-transform">&larr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Outreach Guide -->
+        <a
+          href="/outreach"
+          class="guide-card"
+          style="--card-gradient: linear-gradient(45deg, #8b5cf6, #ec4899)"
+        >
+          <div class="card-content">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+              />
+            </svg>
+            <h3 class="text-2xl font-bold mb-2">دليل التواصل الذكي</h3>
+            <p class="mb-6">
+              لا تنتظر الفرصة، اصنعها! استخدم الذكاء الاصطناعي لصياغة رسائل
+              احترافية ومؤثرة تضمن لك الردود التي تستحقها.
+            </p>
+            <div
+              class="mt-auto font-semibold flex items-center gap-2 arrow-link"
+            >
+              تواصل بذكاء
+              <span class="text-2xl transition-transform">&larr;</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

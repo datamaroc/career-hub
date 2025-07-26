@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دليل إعداد البورتفوليو الخاص بك</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        /* تعيين خط Cairo للموقع بالكامل */
+        font-family: "Cairo", sans-serif;
+      }
+      .step-connector::after {
+        content: "";
+        position: absolute;
+        right: 50%; /* تم التعديل ليتناسب مع اتجاه RTL */
+        top: 100%;
+        height: 2rem;
+        border-right: 2px dashed #d1d5db; /* تم التعديل ليتناسب مع اتجاه RTL */
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800">
+    <div class="container mx-auto p-4 sm:p-8 max-w-5xl">
+      <header class="text-center mb-12 sm:mb-16">
+        <div
+          class="inline-flex items-center rounded-full bg-slate-100 p-1.5 mb-6 border-2 border-slate-200/80"
+        >
+          <a
+            href="/portfolio"
+            class="rounded-full px-5 py-2 text-sm font-medium text-slate-500 transition-colors hover:text-slate-900"
+          >
+            English
+          </a>
+          <a
+            href="/portfolio/ar"
+            class="ml-1 rounded-full bg-white px-5 py-2 text-sm font-semibold text-blue-600 shadow-sm"
+            aria-current="page"
+          >
+            العربية
+          </a>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
+          أطلق معرض أعمالك (Portfolio)
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+          دليل مرئي، خطوة بخطوة، لنشر أعمالك على الإنترنت وعرض مهاراتك للعالم.
+        </p>
+      </header>
+
+      <section class="mb-12 sm:mb-16">
+        <div class="relative text-center mb-10">
+          <div
+            class="inline-block bg-blue-100 text-blue-800 text-2xl font-bold px-6 py-3 rounded-full shadow-sm"
+          >
+            الخطوة 1: جهّز أدواتك 🛠️
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div
+            class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center items-center h-20">
+              <svg
+                class="w-16 h-16 text-blue-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mt-4 mb-2">
+              تثبيت VS Code
+            </h3>
+            <p class="text-slate-600 mb-4">محرر الأكواد الاحترافي الخاص بك.</p>
+            <a
+              href="https://code.visualstudio.com/"
+              target="_blank"
+              class="font-semibold text-blue-600 hover:text-blue-800 transition-colors"
+              >حمّل من هنا &larr;</a
+            >
+          </div>
+          <div
+            class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center items-center h-20">
+              <svg
+                class="w-16 h-16 text-green-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mt-4 mb-2">
+              تثبيت Node.js
+            </h3>
+            <p class="text-slate-600 mb-4">المحرّك الأساسي لموقعك.</p>
+            <a
+              href="https://nodejs.org/"
+              target="_blank"
+              class="font-semibold text-green-600 hover:text-green-800 transition-colors"
+              >تحميل نسخة LTS &larr;</a
+            >
+          </div>
+          <div
+            class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center items-center h-20">
+              <svg
+                class="w-16 h-16 text-purple-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mt-4 mb-2">
+              استنساخ مشروعك
+            </h3>
+            <p class="text-slate-600 mb-4">احصل على الكود على جهازك.</p>
+            <code
+              class="bg-slate-100 text-slate-700 p-2 rounded-md text-sm inline-block"
+              >git clone URL</code
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12 sm:mb-16">
+        <div class="relative text-center mb-10">
+          <div
+            class="inline-block bg-emerald-100 text-emerald-800 text-2xl font-bold px-6 py-3 rounded-full shadow-sm"
+          >
+            الخطوة 2: نقل الكود البرمجي 💻✨
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div
+          class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-200 space-y-6"
+        >
+          <div class="text-slate-700 text-lg leading-relaxed">
+            <p class="mb-3">
+              حان الوقت لاستدعاء ونسخ مشروعك من GitHub إلى جهازك:
+            </p>
+
+            <p class="font-semibold mb-2">🔁 استنساخ المشروع (Repository):</p>
+            <pre
+              class="bg-slate-100 p-4 rounded text-slate-800 overflow-x-auto text-sm text-left"
+            ><code dir="ltr">git clone https://github.com/datamaroc/portfolio-starter-kit.git</code></pre>
+
+            <p class="font-semibold mt-4 mb-2">📁 انتقل إلى مجلد المشروع:</p>
+            <pre
+              class="bg-slate-100 p-4 rounded text-slate-800 overflow-x-auto text-sm text-left"
+            ><code dir="ltr">cd portfolio-starter-kit</code></pre>
+
+            <p class="font-semibold mt-4 mb-2">📦 تثبيت المكونات :</p>
+            <pre
+              class="bg-slate-100 p-4 rounded text-slate-800 overflow-x-auto text-sm text-left"
+            ><code dir="ltr">npm install</code></pre>
+            <p class="text-sm text-slate-500 italic mt-2">
+              💡 هذا الأمر يقرأ ملف <code>package.json</code> الخاص بك ويقوم
+              بتنزيل كل ما يجعل موقعك يبدو رائعًا. الأمر أشبه بالطهي، ولكن
+              باستخدام الأكواد.
+            </p>
+          </div>
+
+          <div class="flex justify-center">
+            <img
+              src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif"
+              alt="developer gif"
+              class="w-64 rounded-lg shadow"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12 sm:mb-16">
+        <div class="relative text-center mb-10">
+          <div
+            class="inline-block bg-sky-100 text-sky-800 text-2xl font-bold px-6 py-3 rounded-full shadow-sm"
+          >
+            الخطوة 3: سحر رسائل البريد الإلكتروني مع Supabase 📧
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div
+          class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-200 space-y-8"
+        >
+          <p class="text-slate-700 text-lg leading-relaxed">
+            هل تريد أن يتمكن زوارك من مراسلتك بدلاً من التحديق في معرض أعمالك
+            فقط؟ لنوظف قوة الباك-إند مع <strong>Supabase</strong> – إنها مثل
+            Firebase، ولكن بروح أبسط وأروع ومع SQL.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow">
+              <h3 class="text-sky-800 font-semibold mb-2">
+                🔐 1. التسجيل في Supabase
+              </h3>
+              <p>
+                اذهب إلى
+                <a
+                  href="https://supabase.com"
+                  target="_blank"
+                  class="text-sky-600 underline"
+                  >supabase.com</a
+                >
+                وأنشئ حسابًا. نعم، إنه مجاني. ونعم، إنه رائع.
+              </p>
+            </div>
+
+            <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow">
+              <h3 class="text-sky-800 font-semibold mb-2">
+                🏗️ 2. إنشاء مشروع جديد
+              </h3>
+              <ul class="list-disc list-inside text-slate-700">
+                <li>Create New Project <- Create New organization</li>
+                <li>أطلق عليه اسم <code>"My Portfolio"</code></li>
+                <li>عيّن كلمة مرور قوية.</li>
+              </ul>
+            </div>
+
+            <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow">
+              <h3 class="text-sky-800 font-semibold mb-2">
+                🔑 3. احصل على مفاتيح API الخاصة بك
+              </h3>
+              <p>
+                اذهب إلى
+                <strong>Settings in your project &gt; Data API</strong>. وانسخ:
+              </p>
+              <ul class="list-disc list-inside text-slate-700 mt-2">
+                <li><code>Project URL</code></li>
+                <li><code>"Go to API Keys" &gt; "anon public key"</code></li>
+              </ul>
+            </div>
+
+            <div class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow">
+              <h3 class="text-sky-800 font-semibold mb-2">
+                🧾 4. إنشاء ملف env.
+              </h3>
+              <p class="mb-2">
+                داخل المجلد الرئيسي لمشروعك، أنشئ ملفًا باسم <code>env.</code> :
+              </p>
+              <pre
+                class="bg-slate-100 p-3 rounded text-sm text-slate-800 overflow-x-auto text-left"
+              >
+<code dir="ltr">VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key</code>
+        </pre>
+              <p class="text-sm text-slate-500 italic mt-1">
+                📝 استبدل القيم بمفاتيحك الحقيقية.
+              </p>
+            </div>
+
+            <div
+              class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow md:col-span-2"
+            >
+              <h3 class="text-sky-800 font-semibold mb-2">
+                📬 5. إنشاء جدول الرسائل (messages)
+              </h3>
+              <p>في لوحة تحكم Supabase:</p>
+              <ul class="list-disc list-inside text-slate-700 mt-2">
+                <li>اذهب إلى <strong>Table Editor</strong></li>
+                <li>
+                  انقر على <code class="font-bold">New Table</code>، وسمّه
+                  <code class="font-bold">messages</code>
+                </li>
+                <li>
+                  أضف 4 أعمدة:(columns)
+                  <code class="font-bold">[name, email, subject, message]</code>
+                  – كلها من نوع نصي (text)
+                </li>
+              </ul>
+              <p class="mt-2 text-sm text-slate-500 italic">
+                📨 هذا هو المكان الذي سيترك فيه معجبوك رسائلهم.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-20 sm:mb-24">
+        <div class="relative text-center mb-12">
+          <div
+            class="inline-block bg-gradient-to-tr from-fuchsia-200 via-rose-100 to-pink-100 text-fuchsia-900 text-2xl font-extrabold px-8 py-4 rounded-full shadow-md tracking-tight"
+          >
+            الخطوة 4: شغّل مشروعك محلياً 🚀
+          </div>
+          <div class="step-connector"></div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-white via-slate-50 to-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl transition hover:shadow-2xl duration-300 space-y-10 max-w-5xl mx-auto"
+        >
+          <p class="text-slate-700 text-lg leading-relaxed">
+            أنت على بعد أمر واحد فقط من رؤية تحفتك الفنية تنبض بالحياة. هيا
+            لنطلق بيئة التطوير المحلية بأناقة.
+          </p>
+
+          <div class="flex items-start gap-4 sm:gap-6">
+            <div
+              class="flex-shrink-0 bg-fuchsia-100 text-fuchsia-700 rounded-full w-12 h-12 flex items-center justify-center text-xl shadow"
+            >
+              ١
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">
+                ابدأ سيرفر التطوير
+              </h3>
+              <pre
+                class="bg-slate-100 border border-slate-200 text-slate-800 rounded-md px-3 pt-4 text-sm font-mono overflow-x-auto shadow-sm text-left"
+              >
+<code dir="ltr">npm run dev</code>
+        </pre>
+              <p class="text-sm text-slate-500 mt-2 italic">
+                هذا الأمر يوقظ مشروعك مثل قهوة الصباح ☕. سيفتح منفذًا لمعاينة
+                موقعك.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 sm:gap-6">
+            <div
+              class="flex-shrink-0 bg-blue-100 text-blue-700 rounded-full w-12 h-12 flex items-center justify-center text-xl shadow"
+            >
+              ٢
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">
+                افتحه في متصفحك
+              </h3>
+              <p class="text-slate-700 text-base mb-2">
+                اذهب إلى:
+                <code
+                  class="bg-slate-100 px-2 py-1 rounded text-slate-900 font-mono"
+                  >http://localhost:8080</code
+                >
+              </p>
+              <p class="text-sm text-slate-500 italic">
+                أو أي رابط يخبرك به الطرفية (terminal) — فهي المسيطرة هنا 🧠.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-20 sm:mb-24">
+        <div class="relative text-center mb-12">
+          <div
+            class="inline-block bg-gradient-to-r from-yellow-100 via-amber-100 to-orange-100 text-yellow-900 text-2xl font-extrabold px-8 py-4 rounded-full shadow-md tracking-tight"
+          >
+            الخطوة 5: خصّص البورتفوليو الخاص بك 🎨
+          </div>
+          <div class="step-connector"></div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-white via-slate-50 to-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl transition hover:shadow-2xl duration-300 space-y-10 max-w-5xl mx-auto"
+        >
+          <div class="text-center">
+            <p class="text-xl text-slate-700 sm:text-2xl font-medium mb-2">
+              هنا يحدث السحر الحقيقي. 🪄
+            </p>
+            <p class="text-slate-500">
+              أضف شخصيتك ومهاراتك وأسلوبك إلى معرض أعمالك — إنها قصتك، مروية
+              بالكود.
+            </p>
+          </div>
+
+          <div
+            class="bg-yellow-50 p-6 rounded-2xl border border-yellow-200 shadow-inner"
+          >
+            <h3
+              class="text-yellow-900 font-bold text-lg mb-3 flex items-center gap-2"
+            >
+              📂 حدّث معلوماتك في
+              <code
+                class="bg-white text-yellow-800 px-2 py-1 rounded font-mono text-sm"
+                >src/data</code
+              >
+            </h3>
+            <ul
+              class="list-disc list-inside text-slate-700 text-base space-y-1"
+            >
+              <li>
+                <code class="font-mono text-yellow-800">user.ts</code>: الاسم،
+                المسمى الوظيفي، البريد الإلكتروني، الشبكات الاجتماعية
+              </li>
+              <li>
+                <code class="font-mono text-yellow-800">projects.ts</code>: اعرض
+                أعمالك المذهلة
+              </li>
+              <li>
+                <code class="font-mono text-yellow-800">skills.ts</code>: حدّث
+                الأدوات والشهادات
+              </li>
+              <li>
+                <code class="font-mono text-yellow-800">education.ts</code>:
+                استعرض مسيرتك التعليمية
+              </li>
+              <li>
+                <code class="font-mono text-yellow-800">services.ts</code>: ما
+                الذي تقدمه للعملاء
+              </li>
+            </ul>
+
+            <div
+              class="mt-6 p-4 bg-white border-r-4 border-yellow-400 rounded shadow-sm"
+            >
+              <p class="text-sm text-slate-600 italic">
+                💡 نصيحة احترافية: انسخ محتوى هذه الملفات مع سيرتك الذاتية واطلب
+                من ChatGPT أو Gemini ترتيب كل شيء لك — كمساعدك الرقمي الخاص.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-orange-50 p-6 rounded-2xl border border-orange-200 shadow-inner"
+          >
+            <h3
+              class="text-orange-900 font-bold text-lg mb-3 flex items-center gap-2"
+            >
+              🖼️ حدّث صورك
+            </h3>
+            <ul
+              class="list-disc list-inside text-slate-700 text-base space-y-1"
+            >
+              <li>
+                <code class="font-mono text-orange-800"
+                  >public/images/profile.png</code
+                >: استبدلها بصورتك الشخصية
+              </li>
+              <li>
+                <code class="font-mono text-orange-800">public/projects/</code>:
+                أضف صور مشاريعك
+              </li>
+              <li>
+                طابق أسماء الملفات مع تلك المستخدمة في
+                <code class="font-mono text-orange-800">projects.ts</code>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-yellow-50 p-6 rounded-2xl border border-yellow-200 shadow-inner"
+          >
+            <h3
+              class="text-yellow-900 font-bold text-lg mb-3 flex items-center gap-2"
+            >
+              📝 حدّث بيانات HTML الوصفية
+            </h3>
+            <p class="text-slate-700 text-base">
+              افتح
+              <code class="font-mono text-yellow-800">index.html</code> وحدّث:
+            </p>
+            <ul
+              class="list-disc list-inside text-slate-700 text-base mt-2 space-y-1"
+            >
+              <li><code>&lt;title&gt;</code> — اسمك الكامل أو منصبك</li>
+              <li>
+                <code>&lt;meta name="description"&gt;</code> — ملخص قصير عنك أو
+                عن علامتك التجارية
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12 sm:mb-16">
+        <div class="relative text-center mb-10">
+          <div
+            class="inline-block bg-orange-100 text-orange-800 text-2xl font-bold px-6 py-3 rounded-full shadow-sm"
+          >
+            خطوة إضافية: اسمح للآخرين بحجز اجتماع معك 🗓️
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div
+          class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-200 space-y-6"
+        >
+          <p class="text-slate-700 text-lg leading-relaxed">
+            اجعل الأمر سهلاً للغاية على العملاء المحتملين أو أصحاب العمل لجدولة
+            اجتماع معك. سنستخدم <strong>Calendly</strong> لحجز المواعيد بشكل
+            مجاني وسهل.
+          </p>
+
+          <div
+            class="bg-orange-50 p-6 rounded-xl border border-orange-200 shadow-inner"
+          >
+            <h3 class="text-orange-800 font-semibold mb-3">
+              إعداد رابط Calendly الخاص بك
+            </h3>
+            <ol class="list-decimal list-inside space-y-3 text-slate-700">
+              <li>
+                اذهب إلى
+                <a
+                  href="https://calendly.com"
+                  target="_blank"
+                  class="text-orange-600 underline"
+                  >calendly.com</a
+                >
+                وسجل للحصول على حساب مجاني.
+              </li>
+              <li>
+                اتبع الإعدادات لإنشاء أول نوع حدث لك، مثل "اجتماع لمدة 30
+                دقيقة".
+              </li>
+              <li>ابحث عن رابط Calendly الشخصي وانسخه. سيبدو هكذا:</li>
+            </ol>
+            <pre
+              class="bg-slate-100 p-3 rounded text-sm text-slate-800 overflow-x-auto mt-3 text-left"
+            ><code dir="ltr">https://calendly.com/your-username/30min</code></pre>
+            <p class="mt-4 text-sm text-slate-500 italic">
+              💡 أضف هذا الرابط إلى "src/data/user.ts" في معرض أعمالك.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-20 sm:mb-24">
+        <div class="relative text-center mb-12">
+          <div
+            class="inline-block bg-gradient-to-r from-indigo-100 via-sky-100 to-cyan-100 text-indigo-900 text-2xl font-extrabold px-8 py-4 rounded-full shadow-md tracking-tight"
+          >
+            الخطوة 6: انشر موقعك للعالم 🌍
+          </div>
+          <div class="step-connector"></div>
+        </div>
+
+        <div
+          class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl space-y-10 max-w-5xl mx-auto"
+        >
+          <div class="text-center">
+            <p class="text-xl text-slate-700 sm:text-2xl font-medium">
+              هيا نطلق موقعك إلى عالم الإنترنت — حتى يتمكن عملاؤك وأصحاب العمل
+              المستقبليون من العثور عليك.
+            </p>
+            <p class="text-slate-500 mt-1">
+              سنستخدم GitHub لتخزين الكود و Vercel لاستضافته... مجانًا
+            </p>
+          </div>
+
+          <div
+            class="bg-indigo-50 p-6 rounded-2xl border border-indigo-200 shadow-inner"
+          >
+            <h3
+              class="text-indigo-900 font-bold text-lg mb-4 flex items-center gap-2"
+            >
+              🚀 ارفع الكود إلى GitHub
+            </h3>
+            <ol
+              class="list-decimal list-inside space-y-3 text-slate-700 text-base"
+            >
+              <li>
+                <span class="font-semibold"
+                  >أنشئ مستودعًا جديدًا (Repository)</span
+                >: اذهب إلى
+                <a
+                  href="https://github.com/new"
+                  target="_blank"
+                  class="text-indigo-600 underline"
+                  >github.com</a
+                >
+                وأنشئ مستودعًا فارغًا. لا تقم بإضافة ملف README أو .gitignore.
+              </li>
+              <li>
+                <span class="font-semibold">أزل سجل Git القديم</span>
+                (إعادة تعيين اختيارية):
+                <pre
+                  class="bg-white border border-slate-200 rounded p-3 text-sm font-mono text-slate-800 overflow-x-auto mt-2 text-left"
+                >
+<code dir="ltr">rm -rf .git
+# على ويندوز:
+rd /s /q .git</code>
+          </pre>
+              </li>
+              <li>
+                <span class="font-semibold">ابدأ وارفع الكود:</span>
+                <pre
+                  class="bg-white border border-slate-200 rounded p-3 text-sm font-mono text-slate-800 overflow-x-auto text-left"
+                >
+<code dir="ltr">git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/your-username/your-repo.git
+git push -u origin main</code>
+          </pre>
+                <p class="text-sm text-slate-500 italic mt-1">
+                  🧠 استبدل <code>your-username</code> و
+                  <code>your-repo</code> بمعلوماتك الحقيقية.
+                </p>
+              </li>
+            </ol>
+          </div>
+
+          <div
+            class="bg-sky-50 p-6 rounded-2xl border border-sky-200 shadow-inner"
+          >
+            <h3
+              class="text-sky-900 font-bold text-lg mb-4 flex items-center gap-2"
+            >
+              ☁️ استضف الموقع على Vercel
+            </h3>
+            <ol
+              class="list-decimal list-inside space-y-4 text-slate-700 text-base"
+            >
+              <li>
+                اذهب إلى
+                <a
+                  href="https://vercel.com"
+                  target="_blank"
+                  class="text-sky-600 underline"
+                  >vercel.com</a
+                >
+                وسجّل الدخول باستخدام حساب GitHub.
+              </li>
+              <li>
+                من لوحة تحكم Vercel، انقر على
+                <strong>"Add New ➜ Project"</strong>.
+              </li>
+              <li>
+                اختر مستودع البورتفوليو الخاص بك وانقر على
+                <strong>Import</strong>.
+              </li>
+              <li class="bg-sky-100 p-3 rounded-lg border border-sky-200">
+                <span class="font-semibold text-sky-800"
+                  >أضف Environment Variables:</span
+                >
+                <p class="mt-1">
+                  قبل النشر، قم بتوسيع قسم "Environment Variables". يجب عليك نسخ
+                  المفاتيح من ملف <code>.env</code> المحلي.
+                </p>
+                <ul
+                  class="list-disc list-inside mt-2 mr-4 text-slate-600 space-y-1"
+                >
+                  <li>أضف <code>VITE_SUPABASE_URL</code> وقيمته.</li>
+                  <li>أضف <code>VITE_SUPABASE_ANON_KEY</code> وقيمته.</li>
+                </ul>
+                <p class="text-xs text-slate-500 italic mt-2">
+                  🔒 هذه الخطوة تربط موقعك المباشر بمنصة Supabase بشكل آمن لكي
+                  يعمل نموذج الاتصال.
+                </p>
+              </li>
+              <li>
+                سيقوم Vercel باكتشاف Vite تلقائيًا. الآن، فقط انقر على
+                <strong>Deploy</strong>. فوز سهل
+              </li>
+            </ol>
+
+            <div
+              class="mt-4 p-4 bg-white border-r-4 border-sky-400 rounded shadow-sm"
+            >
+              <p class="text-sm text-slate-600 italic">
+                🎉 بمجرد النشر، سيكون موقعك متاحًا على
+                <code>yourproject.vercel.app</code>. حان وقت الاحتفال
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-24 sm:mb-28">
+        <div class="relative text-center mb-12">
+          <div
+            class="inline-block bg-gradient-to-r from-teal-100 via-emerald-100 to-lime-100 text-teal-900 text-2xl font-extrabold px-8 py-4 rounded-full shadow-md tracking-tight"
+          >
+            الخطوة 7 (اختياري): أضف دومين خاص 🌐
+          </div>
+        </div>
+
+        <div
+          class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl space-y-10 max-w-4xl mx-auto"
+        >
+          <div class="text-center">
+            <p class="text-xl text-slate-700 sm:text-2xl font-medium">
+              هل تريد أن يكون عنوان موقعك <strong>yourname.com</strong>؟ لنجعل
+              الأمر رسميًا.
+            </p>
+            <p class="text-slate-500 mt-1">
+              هذه الخطوة اختيارية تمامًا، ولكنها تمنح موقعك لمسة احترافية 💼
+            </p>
+          </div>
+
+          <div
+            class="bg-lime-50 p-6 rounded-2xl border border-lime-200 shadow-inner"
+          >
+            <ol
+              class="list-decimal list-inside space-y-4 text-slate-700 text-base"
+            >
+              <li>
+                <span class="font-semibold">اشترِ دومين (نطاق)</span> من مسجّل
+                مثل
+                <a
+                  href="https://www.namecheap.com"
+                  target="_blank"
+                  class="text-emerald-600 underline"
+                  >Namecheap</a
+                >
+                أو
+                <a
+                  href="https://www.godaddy.com"
+                  target="_blank"
+                  class="text-emerald-600 underline"
+                  >GoDaddy</a
+                >.
+              </li>
+              <li>
+                في Vercel، اذهب إلى إعدادات مشروعك ← تبويب
+                <strong>Domains</strong>.
+              </li>
+              <li>
+                انقر على <strong>Add</strong> واكتب الدومين الخاص بك (مثال:
+                <code>yourname.com</code>).
+              </li>
+              <li>
+                اتبع تعليمات Vercel لتحديث سجلات DNS لدى المسجّل الخاص بك.
+              </li>
+            </ol>
+
+            <div
+              class="mt-4 p-4 bg-white border-r-4 border-emerald-400 rounded shadow-sm"
+            >
+              <p class="text-sm text-slate-600 italic">
+                🌍 سيعيش معرض أعمالك الآن على الدومين الخاص بك — أنيق، احترافي،
+                ولا يُنسى.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="text-center mb-20">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">🎉 تهانينا</h2>
+        <p class="text-lg text-slate-700 max-w-xl mx-auto">
+          لديك الآن معرض أعمال احترافي ومباشر على الإنترنت. استمر في تحديثه،
+          شاركه مع الآخرين، ونتمنى لك كل التوفيق في رحلتك.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

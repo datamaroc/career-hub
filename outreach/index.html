@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      دليل التواصل الاحترافي بالذكاء الاصطناعي: رسائل البريد الإلكتروني و
+      LinkedIn التي تحقق نتائج
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+        background-color: #f8fafc; /* bg-slate-50 */
+      }
+      .prompt-box {
+        position: relative;
+        background-color: #f1f5f9; /* bg-slate-100 */
+        border: 1px solid #e2e8f0; /* border-slate-200 */
+        border-radius: 0.75rem; /* rounded-xl */
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05),
+          0 2px 4px -2px rgb(0 0 0 / 0.05);
+        text-align: left; /* Keep prompt text LTR */
+      }
+      .copy-btn {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem; /* Adjusted for RTL */
+        background-color: #e2e8f0; /* bg-slate-200 */
+        color: #475569; /* text-slate-600 */
+        border: none;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        opacity: 0.8;
+      }
+      .copy-btn:hover {
+        background-color: #cbd5e1; /* bg-slate-300 */
+        color: #1e293b; /* text-slate-800 */
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      .copied-feedback {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem; /* Adjusted for RTL */
+        background-color: #22c55e; /* bg-green-500 */
+        color: white;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body class="text-slate-700">
+    <div class="container mx-auto max-w-5xl p-4 sm:p-8">
+      <!-- Header -->
+      <header class="text-center mb-16">
+        <div
+          class="inline-block bg-gradient-to-br from-violet-100 to-teal-100 p-4 rounded-2xl mb-6"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-12 w-12 text-violet-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+            />
+          </svg>
+        </div>
+        <h3
+          class="text-xl sm:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight"
+        >
+          التواصل الاحترافي
+        </h3>
+        <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+          صياغة رسائل بريد إلكتروني ورسائل LinkedIn يقرأها مسؤولو التوظيف
+          ويتفاعلون معها.
+        </p>
+      </header>
+
+      <section
+        class="mb-16 bg-white p-8 rounded-2xl shadow-sm border border-slate-200"
+      >
+        <h2
+          class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-7 w-7 text-teal-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
+          </svg>
+          تغيير العقلية: من "أبحث عن تدريب" إلى "مُتعلم قادر على المساهمة"
+        </h2>
+        <p class="leading-relaxed">
+          أحد الأخطاء الشائعة بين الطلاب والباحثين عن فرص تدريب هو الظهور بمظهر
+          من يبحث عن أي فرصة فقط. الطريقة الأفضل والأكثر فعالية اليوم هي أن
+          تُظهر اهتمامك بالشركة وفهمك لما تعمل عليه. حتى لو كنت في بداية الطريق،
+          يمكنك إيصال رسالة . في هذا الدليل، ستتعلم كيف تستخدم الذكاء الاصطناعي
+          لصياغة رسالة مهنية تترك انطباعاً إيجابياً وتُظهر أنك مُتعلم سريع وجدّي
+          في نيتك التطور والمساعدة.
+        </p>
+      </section>
+
+      <!-- The Master Prompt for Emails -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold text-slate-900 mb-6 text-center">
+          Prompt احترافي للبريد الإلكتروني 📧
+        </h2>
+
+        <div
+          class="relative bg-white border border-slate-200 rounded-xl p-4 shadow-sm"
+          id="email-prompt-container"
+        >
+          <!-- Copy Button (Top-Right) -->
+          <button
+            class="absolute top-3 right-3 text-slate-600 hover:text-violet-600"
+            onclick="copyToClipboard('email-prompt')"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+              />
+            </svg>
+          </button>
+
+          <!-- Prompt Content -->
+          <pre
+            class="text-slate-800 whitespace-pre-wrap text-base leading-relaxed"
+            id="email-prompt"
+            dir="ltr"
+          >
+<strong class="text-violet-700">## Persona:</strong>
+Act as a world-class career strategist and copywriter, with expertise in crafting compelling job application emails that feel human, confident, and professional.
+
+<strong class="text-violet-700">## Context:</strong>
+I am applying for the following role. My goal is to stand out from hundreds of other applicants by showing I'm a perfect fit and a proactive problem-solver.
+
+- **My Target Language:** [English/French/etc.]
+- **Job Title:** [e.g., Junior Data Analyst]
+- **Job Description:** """
+[Paste the full job description here]
+"""
+
+<strong class="text-violet-700">## Task:</strong>
+Draft a concise, warm, and engaging email (under 180 words). The email must:
+1.  Start with a professional and respectful greeting.
+2.  Immediately connect my profile to the core needs mentioned in the job description.
+3.  Highlight 1-2 of my key skills/experiences that directly map to their requirements, making me sound like the ideal candidate.
+4.  End with a clear and confident call to action, suggesting the next step.
+
+<strong class="text-violet-700">## Negative Constraints (What to Avoid):</strong>
+- Do NOT use generic clichés like "I am writing to express my interest," "I believe I am a strong candidate," or "Thank you for your time and consideration."
+- Do NOT just list my skills. Weave them into a narrative that shows how I can add value.
+- Do NOT sound desperate or overly formal. The tone should be one of a peer—a confident professional reaching out to another.
+    </pre>
+        </div>
+      </section>
+
+      <!-- The Master Prompt for LinkedIn -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold text-slate-900 mb-6 text-center">
+          Prompt احترافي لرسائل LinkedIn 💼
+        </h2>
+
+        <div
+          class="relative bg-white border border-slate-200 rounded-xl p-4 shadow-sm"
+          id="linkedin-prompt-container"
+        >
+          <!-- Copy Button (Top-Right) -->
+          <button
+            class="absolute top-3 right-3 text-slate-600 hover:text-teal-600"
+            onclick="copyToClipboard('linkedin-prompt')"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+              />
+            </svg>
+          </button>
+
+          <!-- Prompt Content -->
+          <pre
+            class="text-slate-800 whitespace-pre-wrap text-base leading-relaxed"
+            id="linkedin-prompt"
+            dir="ltr"
+          >
+<strong class="text-teal-700">## Persona:</strong>
+Act as a networking expert specializing in crafting short, high-impact LinkedIn messages that get replies.
+
+<strong class="text-teal-700">## Context:</strong>
+I'm reaching out to a recruiter about a job opening. The message needs to be extremely concise, personal, and respectful of their time.
+
+- **My Target Language:** [English/French/etc.]
+- **Job Title:** [e.g., Software Engineer Intern]
+- **Job Description:** """
+[Paste the full job description here]
+"""
+
+<strong class="text-teal-700">## Task:</strong>
+Draft a warm and professional LinkedIn message (under 80 words). The message must:
+1.  Start with a friendly and polite greeting.
+2.  Briefly mention the specific role I'm excited about.
+3.  Include a powerful one-sentence pitch that connects my key strength to a core requirement of the job.
+4.  End with a soft call to action, like pointing them to my application or asking a brief question.
+
+<strong class="text-teal-700">## Negative Constraints (What to Avoid):</strong>
+- Do NOT use a generic "I saw your job post." Be more specific.
+- Do NOT attach my resume directly.
+- Do NOT be demanding. The tone should be light, confident, and inquisitive.
+    </pre>
+        </div>
+      </section>
+
+      <!-- Pro-Tips Section -->
+      <section
+        class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200"
+      >
+        <h2
+          class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-7 w-7 text-violet-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+            />
+          </svg>
+          نصائح احترافية لنتائج مذهلة
+        </h2>
+        <ul class="space-y-3 text-slate-600">
+          <li class="flex items-start gap-3">
+            <span class="font-bold text-violet-600">١.</span>
+            <div>
+              <strong class="text-slate-800">لا تثق، بل تحقّق:</strong> اقرأ
+              دائمًا المخرجات التي يقدمها الذكاء الاصطناعي بعناية. إنه مساعدك،
+              وليس بديلاً عنك. عدّل بضع كلمات لتجعلها تبدو 100% بصوتك.
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="font-bold text-violet-600">٢.</span>
+            <div>
+              <strong class="text-slate-800">ابحث عن الاسم:</strong> أكبر ترقية
+              يمكنك إجراؤها هي العثور على اسم مسؤول التوظيف. استخدم LinkedIn
+              للبحث عن "Talent Acquisition" أو "Recruiter" في الشركة. مخاطبتهم
+              بالاسم تحدث فرقًا كبيرًا.
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="font-bold text-violet-600">٣.</span>
+            <div>
+              <strong class="text-slate-800">المتابعة (Follow-Up):</strong> إذا
+              لم تتلقَ ردًا في غضون أسبوع، فمن المقبول تمامًا إرسال رسالة متابعة
+              مهذبة من جملة واحدة. "مرحبًا [الاسم]، أردت فقط المتابعة بلطف بخصوص
+              طلبي لوظيفة [اسم الوظيفة]. أتطلع إلى ردكم."
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <script>
+      function copyToClipboard(elementId) {
+        const textToCopy = document.getElementById(elementId).innerText;
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = textToCopy;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        // Show feedback
+        const container = document.getElementById(elementId + "-container");
+        const originalButton = container.querySelector(".copy-btn");
+        originalButton.style.display = "none";
+
+        const feedback = document.createElement("div");
+        feedback.className = "copied-feedback";
+        feedback.innerText = "تم النسخ!";
+        container.appendChild(feedback);
+
+        setTimeout(() => {
+          feedback.remove();
+          originalButton.style.display = "block";
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
