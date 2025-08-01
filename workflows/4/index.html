@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دليل بناء وكيل فواتير ذكاء اصطناعي عبر واتساب مع n8n</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+        scroll-behavior: smooth;
+        background-color: #f8f9fa;
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #5e72e4, #8965e0);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .section-card {
+        background-color: #ffffff;
+        border: 1px solid #e9ecef;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+      .section-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+      }
+      .step-number {
+        background: linear-gradient(to bottom right, #5e72e4, #8965e0);
+        color: white;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        font-weight: 900;
+        flex-shrink: 0;
+      }
+      .code-block {
+        position: relative;
+        background-color: #2d3748;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        color: #e2e8f0;
+      }
+      .copy-button {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #d1d5db;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      .copy-button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .token-property {
+        color: #80cbc4;
+      }
+      .token-string {
+        color: #ffab91;
+      }
+      .token-number {
+        color: #c5e1a5;
+      }
+      .token-punctuation {
+        color: #e2e8f0;
+      }
+      .node-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto p-4 md:p-8 lg:p-12">
+      <!-- Header -->
+      <header class="text-center mb-12 md:mb-20">
+        <h1
+          class="text-4xl md:text-6xl font-black mb-4 tracking-tight text-gray-900"
+        >
+          بناء وكيل فواتير <span class="gradient-text">ذكي عبر واتساب</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          دليلك الشامل والمفصّل لدمج n8n مع الذكاء الاصطناعي لإنشاء فواتير PDF
+          تلقائياً.
+        </p>
+      </header>
+
+      <!-- Introduction -->
+      <section class="mb-12 md:mb-16 section-card rounded-2xl p-6 md:p-8">
+        <h2
+          class="text-2xl md:text-3xl font-bold mb-4 flex items-center text-gray-900"
+        >
+          <span class="text-3xl ml-3">🚀</span>
+          مرحبًا بكم يا مجتمعنا المبدع
+        </h2>
+        <p class="text-gray-700 leading-relaxed">
+          هل أنتم مستعدون للارتقاء بمهاراتكم في الأتمتة؟ في هذا الدليل، سنقوم
+          ببناء مشروع مذهل وعملي للغاية:
+          <strong>وكيل ذكاء اصطناعي (AI Agent) واتساب</strong>. تخيل أنك ترسل
+          رسالة نصية عادية، وفي غضون ثوانٍ، يقوم هذا الوكيل بتحليل طلبك، وإنشاء
+          فاتورة احترافية بصيغة PDF، ثم يرسلها إليك مباشرة على واتساب. هذا ليس
+          مجرد توفير للوقت، بل هو استعراض حقيقي لقوة دمج الذكاء الاصطناعي مع
+          منصات الأتمتة مثل n8n.
+        </p>
+      </section>
+
+      <!-- Key Concepts -->
+      <section class="mb-12 md:mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900"
+        >
+          قبل أن نبدأ: شرح المصطلحات الأساسية
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="section-card rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-2 gradient-text">n8n</h3>
+            <p class="text-gray-600">
+              منصة أتمتة مرئية تتيح لك ربط تطبيقات مختلفة. فكر فيها كأنها مكعبات
+              ليغو رقمية؛ كل مكعب (Node) يقوم بمهمة معينة.
+            </p>
+          </div>
+          <div class="section-card rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-2 gradient-text">Workflow</h3>
+            <p class="text-gray-600">
+              هي خريطة الطريق التي تبنيها في n8n. في حالتنا: "استقبل رسالة
+              واتساب > افهمها بالذكاء الاصطناعي > أنشئ PDF > أرسل PDF".
+            </p>
+          </div>
+          <div class="section-card rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-2 gradient-text">Node</h3>
+            <p class="text-gray-600">
+              هي الوحدة الأساسية في n8n. كل عُقدة هي تطبيق أو إجراء محدد (مثل
+              واتساب، PDF.co، أو نموذج لغوي).
+            </p>
+          </div>
+          <div class="section-card rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-2 gradient-text">API</h3>
+            <p class="text-gray-600">
+              واجهة برمجة التطبيقات. هي الطريقة التي تتواصل بها البرامج مع بعضها
+              البعض، مثل نادل يستقبل طلبك ويسلمه للمطبخ.
+            </p>
+          </div>
+          <div class="section-card rounded-xl p-6 col-span-1 md:col-span-2">
+            <h3 class="text-xl font-bold mb-2 gradient-text">
+              JSON (JavaScript Object Notation)
+            </h3>
+            <p class="text-gray-600 mb-4">
+              لغة عالمية ومنظمة تستخدمها التطبيقات لتمرير البيانات. الذكاء
+              الاصطناعي سيقوم بتحويل رسالتك النصية الفوضوية إلى ملف JSON مرتب
+              ليسهل على العُقد الأخرى فهمه.
+            </p>
+            <div class="code-block">
+              <button class="copy-button" onclick="copyCode(this)">نسخ</button>
+              <pre dir="ltr">
+                <code class="language-json text-sm">
+                    {
+                    <span class="token-property">"customer_name"</span>: <span class="token-string">"شركة النور للتجارة"</span>,
+                    <span class="token-property">"invoice_amount"</span>: <span class="token-number">250</span>,
+                    <span class="token-property">"currency"</span>: <span class="token-string">"MAD"</span>,
+                    <span class="token-property">"items"</span>: [
+                        {
+                        <span class="token-property">"description"</span>: <span class="token-string">"تصميم شعار"</span>,
+                        <span class="token-property">"quantity"</span>: <span class="token-number">1</span>
+                        }
+                    ],
+                    <span class="token-property">"invoice_date"</span>: <span class="token-string">"2025-07-30"</span>
+                    }
+                </code>
+            </pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Full Workflow Breakdown -->
+      <section>
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900"
+        >
+          شرح كامل لورشة العمل (Workflow)
+        </h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+          هنا سنقوم بتفصيل كل عُقدة في ورشة العمل، خطوة بخطوة، لنفهم دورها
+          وكيفية إعدادها.
+        </p>
+
+        <div class="space-y-8">
+          <!-- Node 1: WhatsApp Trigger -->
+          <div class="section-card rounded-xl p-6 flex items-start gap-6">
+            <div class="step-number">1</div>
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">
+                📱 عُقدة WhatsApp Trigger (بوابة الاستقبال)
+              </h3>
+              <p class="text-gray-600">
+                هذه هي نقطة البداية. وظيفتها هي "الاستماع" لأي رسالة جديدة تصل
+                إلى رقم واتساب الخاص بك. عندما تصل رسالة، تبدأ ورشة العمل وتمرر
+                بيانات الرسالة (النص ورقم المرسل) إلى العُقدة التالية.
+              </p>
+              <blockquote
+                class="mt-4 border-r-4 border-blue-400 bg-blue-50 p-3 rounded-lg text-blue-800"
+              >
+                <strong>إعداد أساسي:</strong> ربط هذه العُقدة يتطلب حساب
+                WhatsApp Business API. لمشاهدة الشرح التفصيلي، يرجى مراجعة فيديو
+                <strong>"Setup WhatsApp Node"</strong> في قسم "Nodes Setup" بالـ
+                Classroom على Skool.
+              </blockquote>
+            </div>
+          </div>
+
+          <!-- Node 2: Switch -->
+          <div class="section-card rounded-xl p-6 flex items-start gap-6">
+            <div class="step-number">2</div>
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">
+                🔀 عُقدة Switch (مُنظّم المرور)
+              </h3>
+              <p class="text-gray-600">
+                تعمل هذه العُقدة كمفترق طرق. تقوم بفحص محتوى الرسالة القادمة
+                وتقرر أي مسار يجب أن تسلكه البيانات. في ورشة عملنا، لديها
+                قاعدتان:
+              </p>
+              <ul class="list-disc pr-5 mt-2 text-gray-600 space-y-1">
+                <li>
+                  <strong>المسار 1 (رسالة ترحيب):</strong> إذا كانت الرسالة هي
+                  "hi"، فإنها توجه التدفق لإرسال رسالة ترحيبية وتعليمات.
+                </li>
+                <li>
+                  <strong>المسار 2 (طلب فاتورة):</strong> إذا كانت الرسالة أي
+                  شيء آخر، فإنها تفترض أنه طلب فاتورة وتوجه التدفق إلى مسار
+                  معالجة الفاتورة.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Node 3: Welcome Message -->
+          <div class="section-card rounded-xl p-6 flex items-start gap-6">
+            <div class="step-number">3</div>
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">
+                👋 عُقدة WhatsApp (الرسالة الترحيبية)
+              </h3>
+              <p class="text-gray-600">
+                هذه العُقدة مسؤولة عن إرسال رسالة واتساب واحدة: الرسالة
+                الترحيبية التي تشرح كيفية استخدام البوت. يتم تشغيلها فقط عندما
+                يحدد الـ Switch أن الرسالة الواردة كانت "hi".
+              </p>
+            </div>
+          </div>
+
+          <!-- Node 4: Processing Message -->
+          <div class="section-card rounded-xl p-6 flex items-start gap-6">
+            <div class="step-number">4</div>
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">
+                ⚡️ عُقدة WhatsApp (رسالة المعالجة)
+              </h3>
+              <p class="text-gray-600">
+                هذه رسالة سريعة لإعلام المستخدم بأن طلبه قيد المعالجة. يتم
+                تشغيلها عندما يكون الطلب لإنشاء فاتورة. هذا يحسن تجربة المستخدم
+                لأنه يعرف أن البوت قد استلم طلبه ويعمل عليه.
+              </p>
+            </div>
+          </div>
+
+          <!-- Node 5: AI Agent -->
+          <div class="section-card rounded-xl p-6 flex items-start gap-6">
+            <div class="step-number">5</div>
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">
+                🧠 عُقدة AI Invoice Agent (العقل المدبر)
+              </h3>
+              <p class="text-gray-600">
+                هنا يحدث السحر. هذه العُقدة تأخذ نص رسالة المستخدم وترسله إلى
+                نموذج لغوي (عبر OpenRouter) مع مجموعة من التعليمات الدقيقة
+                (System Prompt) التي تخبره بكيفية استخراج تفاصيل الفاتورة
+                وإرجاعها بتنسيق JSON منظم.
+              </p>
+              <blockquote
+                class="mt-4 border-r-4 border-blue-400 bg-blue-50 p-3 rounded-lg text-blue-800"
+              >
+                <strong>إعداد أساسي:</strong> ستحتاج إلى ربط حسابك في
+                <strong>OpenRouter</strong>. لمشاهدة الشرح، راجع فيديو
+                <strong>"Setup OpenRouter API"</strong> في قسم "Nodes Setup"
+                بالـ Classroom.
+              </blockquote>
+            </div>
+          </div>
+
+          <!-- Node 6: Output Parser -->
+          <div class="section-card rounded-xl p-6 flex items-start gap-6">
+            <div class="step-number">6</div>
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">
+                📊 عُقدة Output Parser (Extract Invoice Data)
+              </h3>
+              <p class="text-gray-600">
+                مخرجات الذكاء الاصطناعي تكون نصية. هذه العُقدة المساعدة تأخذ هذا
+                النص وتتأكد من أنه بتنسيق JSON صالح وصحيح وفقًا للمخطط (Schema)
+                الذي حددناه. إنها تضمن أن البيانات التي ستستخدمها العُقد التالية
+                نظيفة ومنظمة تمامًا.
+              </p>
+            </div>
+          </div>
+
+          <!-- Node 7: Generate HTML -->
+          <div class="section-card rounded-xl p-6 flex items-start gap-6">
+            <div class="step-number">7</div>
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">
+                🎨 عُقدة Generate HTML (مصمم الفاتورة)
+              </h3>
+              <p class="text-gray-600">
+                تأخذ هذه العُقدة بيانات JSON النظيفة من العُقدة السابقة
+                وتستخدمها لملء قالب HTML مُعد مسبقًا. إنها تضع اسم العميل في
+                مكانه، وبنود الفاتورة في الجدول، والمبلغ الإجمالي في الأسفل،
+                لتنشئ صفحة ويب كاملة تمثل الفاتورة.
+              </p>
+            </div>
+          </div>
+
+          <!-- Node 8: PDF.co -->
+          <div class="section-card rounded-xl p-6 flex items-start gap-6">
+            <div class="step-number">8</div>
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">
+                📄 عُقدة PDF.co (محوّل الـ PDF)
+              </h3>
+              <p class="text-gray-600">
+                تأخذ هذه العُقدة كود الـ HTML الذي تم إنشاؤه في الخطوة السابقة
+                وترسله إلى خدمة PDF.co، التي تقوم بتحويل صفحة الـ HTML إلى ملف
+                PDF احترافي وجاهز للإرسال.
+              </p>
+              <blockquote
+                class="mt-4 border-r-4 border-blue-400 bg-blue-50 p-3 rounded-lg text-blue-800"
+              >
+                <strong>إعداد أساسي:</strong> هذه "عُقدة مجتمعية" وقد تحتاج إلى
+                تثبيتها. إليك الطريقتان:
+                <ul class="list-disc pr-5 mt-2 text-blue-700 space-y-1">
+                  <li>
+                    <strong>الطريقة السريعة:</strong> من لوحة التحرير، انقر على
+                    أيقونة
+                    <code class="bg-blue-100 text-blue-800 px-1 py-0.5 rounded"
+                      >+</code
+                    >، ابحث عن PDF.co، ثم انقر <strong>Install</strong>.
+                  </li>
+                  <li>
+                    <strong>الطريقة البديلة:</strong> اذهب إلى
+                    <strong>Settings > Community Nodes</strong>، ابحث عن
+                    <code class="bg-blue-100 text-blue-800 px-1 py-0.5 rounded"
+                      >n8n-nodes-pdfco</code
+                    >
+                    وانقر <strong>Install</strong>.
+                  </li>
+                </ul>
+                <p class="mt-2">
+                  ستحتاج أيضًا إلى مفتاح API من حسابك على موقع PDF.co.
+                </p>
+              </blockquote>
+            </div>
+          </div>
+          <!-- Node 9: Send Invoice -->
+          <div class="section-card rounded-xl p-6 flex items-start gap-6">
+            <div class="step-number">9</div>
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">
+                📨 عُقدة WhatsApp (عامل التوصيل النهائي)
+              </h3>
+              <p class="text-gray-600">
+                هذه هي الخطوة الأخيرة. تقوم هذه العُقدة بإرسال ملف الـ PDF
+                النهائي إلى المستخدم. من المهم جدًا ربط حقل رقم الهاتف برقم
+                المرسل الأصلي من العُقدة الأولى لضمان وصول الفاتورة إلى الشخص
+                الصحيح.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final Step -->
+      <section class="mt-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+          الخطوة النهائية: التشغيل والإطلاق
+        </h2>
+        <div class="max-w-3xl mx-auto section-card rounded-xl p-8">
+          <div class="step-number mx-auto mb-4">🚀</div>
+          <p class="text-gray-600 leading-relaxed">
+            لقد قمت بالعمل الشاق وفهمت كل جزء من ورشة العمل. الآن، كل ما عليك
+            فعله هو التأكد من أن جميع العُقد معدة بشكل صحيح، ثم انقر على
+            <strong>حفظ (Save)</strong>، وقم
+            <strong>بتفعيل (Activate)</strong> ورشة العمل من المفتاح في الزاوية
+            العلوية اليمنى. ألف مبروك، وكيلك الذكي جاهز للعمل
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center mt-20 pt-10 border-t border-gray-200">
+        <p class="text-gray-500">
+          نأمل أن يكون هذا الدليل الشامل قد أوضح كل خطوة. الأتمتة هي مهارة
+          المستقبل، وأنتم الآن في الطليعة.
+        </p>
+        <p class="text-gray-500">
+          لا تترددوا في طرح أي أسئلة في المجتمع. بالتوفيق.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const codeBlock = button.nextElementSibling;
+        const text = codeBlock.innerText;
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand("copy");
+          button.innerText = "تم النسخ";
+          setTimeout(() => {
+            button.innerText = "نسخ";
+          }, 2000);
+        } catch (err) {
+          console.error("Failed to copy text: ", err);
+          button.innerText = "فشل النسخ";
+        }
+        document.body.removeChild(textarea);
+      }
+    </script>
+  </body>
+</html>

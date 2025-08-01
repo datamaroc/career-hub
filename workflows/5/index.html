@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدليل الفني لإعداد RAG Workflow في n8n</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .ltr-text {
+        direction: ltr;
+        display: inline-block;
+        font-family: "monospace", "Courier New";
+        font-weight: 700;
+        color: #1e40af; /* blue-800 */
+        background-color: #e0e7ff; /* indigo-100 */
+        padding: 2px 8px;
+        border-radius: 6px;
+        font-size: 0.9em;
+      }
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+      details summary .arrow {
+        transition: transform 0.3s ease-in-out;
+      }
+      details[open] summary .arrow {
+        transform: rotate(90deg);
+      }
+      .code-block {
+        background-color: #1e293b; /* slate-800 */
+        color: #e2e8f0; /* slate-200 */
+        border-radius: 8px;
+        padding: 16px;
+        font-family: "monospace";
+        direction: ltr;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        overflow-x: auto;
+      }
+      .code-keyword {
+        color: #c084fc;
+      } /* purple-400 */
+      .code-function {
+        color: #7dd3fc;
+      } /* lightBlue-400 */
+      .code-comment {
+        color: #6b7280;
+      } /* gray-500 */
+      .code-string {
+        color: #fb923c;
+      } /* orange-400 */
+      .code-variable {
+        color: #f87171;
+      } /* red-400 */
+    </style>
+  </head>
+  <body class="bg-gray-50 text-slate-800">
+    <div class="container mx-auto max-w-5xl px-4 py-12">
+      <header class="text-center mb-16">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight"
+        >
+          الدليل الفني لإعداد سير عمل
+          <span
+            class="ltr-text text-5xl md:text-6xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white"
+            >RAG</span
+          >
+          في n8n
+        </h1>
+      </header>
+
+      <!-- Step 1: Import Workflow -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 border-b-4 border-purple-600 pb-2">
+          الخطوة 1: استيراد سير العمل (Import Workflow)
+        </h2>
+        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+          <p class="text-lg text-slate-700">
+            قبل البدء، يجب عليك استيراد ملف
+            <span class="ltr-text">rag.json</span> المرفق إلى بيئة
+            <span class="ltr-text">n8n</span> الخاصة بك. هذا الملف يحتوي على
+            الهيكل الكامل لسير العمل وجميع العقد (<span class="ltr-text"
+              >Nodes</span
+            >) مترابطة وجاهزة للتكوين.
+          </p>
+          <ol class="list-decimal list-inside mt-4 space-y-2 text-slate-600">
+            <li>
+              في لوحة تحكم <span class="ltr-text">n8n</span>، اذهب إلى قسم
+              <span class="ltr-text">Workflows</span>.
+            </li>
+            <li>
+              ابحث عن زر <span class="ltr-text">Import from File</span> أو ما
+              يعادله.
+            </li>
+            <li>
+              اختر ملف <span class="ltr-text">rag.json</span> الذي قمت بتنزيله.
+            </li>
+            <li>
+              بعد الاستيراد، سترى سير العمل كاملاً أمامك. الآن، لننتقل إلى إعداد
+              المتطلبات.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Key Concepts Section -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 border-b-4 border-purple-600 pb-2">
+          فهم المفاهيم الأساسية (Key Concepts)
+        </h2>
+        <div class="space-y-4">
+          <!-- AI Agent Dropdown -->
+          <details
+            class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden"
+          >
+            <summary
+              class="p-6 flex justify-between items-center cursor-pointer"
+            >
+              <h3 class="text-xl font-bold flex items-center">
+                🤖 وكيل الذكاء الاصطناعي
+                <span class="ltr-text mx-2">AI Agent</span>
+              </h3>
+              <div class="arrow text-2xl font-bold text-purple-600">›</div>
+            </summary>
+            <div
+              class="px-6 pb-6 border-t border-slate-200 divide-y divide-slate-200"
+            >
+              <div class="py-4">
+                <p class="text-slate-700">
+                  من منظور علم البيانات، تخيل النموذج اللغوي (<span
+                    class="ltr-text"
+                    >LLM</span
+                  >) كعالم فيزياء عبقري، لكنه محبوس في غرفة فارغة بذاكرة لا
+                  تتجاوز 5 ثوانٍ. يمكنه حل أي معادلة معقدة ترميها عليه، لكنه لا
+                  يعرف من أنت ولا يستطيع طلب بيتزا. <br /><br />
+                  الـ <span class="ltr-text">AI Agent</span> هو نفس هذا العالم،
+                  لكننا قمنا بترقيته! أعطيناه:
+                </p>
+                <ul class="list-disc list-inside mt-2 space-y-1 text-slate-600">
+                  <li><strong>دفتر ملاحظات (Memory)</strong></li>
+                  <li><strong>صندوق أدوات سويسري (Tools)</strong></li>
+                  <li><strong>اتصال بالعالم الخارجي (APIs)</strong></li>
+                </ul>
+                <p class="mt-2 text-slate-700">
+                  فجأة، أصبح بإمكانه تذكر محادثاتكم السابقة، البحث عن أفضل مطعم
+                  بيتزا، وطلبها نيابة عنك. إنه لم يعد مجرد "متحدث"، بل أصبح
+                  "فاعل".
+                </p>
+              </div>
+
+              <div class="py-4">
+                <h4 class="font-bold text-lg text-slate-800">
+                  المكونات الأساسية للوكيل:
+                </h4>
+                <ul class="mt-2 space-y-4">
+                  <li class="flex items-start">
+                    <span class="text-2xl mr-3">🧠</span>
+                    <div>
+                      <strong class="font-bold"
+                        >نموذج الدردشة (<span class="ltr-text">Chat Model</span
+                        >):</strong
+                      >
+                      <p class="text-slate-600">
+                        هذا هو "المحرك" أو العقل المفكر (<span class="ltr-text"
+                          >LLM</span
+                        >). هو الذي يقوم بعملية التفكير، التخطيط، واتخاذ القرار.
+                        يحلل طلبك ويقرر: "هل يجب أن أجيب مباشرة، أم أستخدم إحدى
+                        أدواتي؟". بدون هذا العقل، الوكيل مجرد هيكل بلا روح.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-2xl mr-3">💾</span>
+                    <div>
+                      <strong class="font-bold"
+                        >الذاكرة (<span class="ltr-text">Memory</span>):</strong
+                      >
+                      <p class="text-slate-600">
+                        حتى أذكى العقول تحتاج إلى ذاكرة. وهي تأتي بنكهتين:
+                      </p>
+                      <ul class="list-disc list-inside mt-1 text-slate-600">
+                        <li>
+                          <strong>ذاكرة قصيرة المدى:</strong> تتذكر آخر أجزاء
+                          المحادثة (مثلاً، آخر 5 رسائل) حتى لا يسألك الوكيل "عن
+                          ماذا كنا نتحدث؟" كل دقيقة.
+                        </li>
+                        <li>
+                          <strong>ذاكرة طويلة المدى:</strong> هذه هي مكتبته
+                          المعرفية، أي قاعدة البيانات الفيكتورية (<span
+                            class="ltr-text"
+                            >VectorDB</span
+                          >) التي يمكنه البحث فيها عن حقائق ومعلومات تعلمها
+                          سابقًا.
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-2xl mr-3">🛠️</span>
+                    <div>
+                      <strong class="font-bold"
+                        >الأدوات (<span class="ltr-text">Tools</span>):</strong
+                      >
+                      <p class="text-slate-600">
+                        هذه هي "أذرع وأعين" الوكيل. هي وظائف (<span
+                          class="ltr-text"
+                          >Functions</span
+                        >) محددة يمكن للعقل (النموذج) أن يقرر استدعاءها. في سير
+                        العمل هذا، الأداة الرئيسية هي أداة البحث في
+                        <span class="ltr-text">VectorDB</span>. يمكن أن تكون
+                        هناك أدوات أخرى مثل البحث في جوجل، الوصول للآلة الحاسبة،
+                        أو استدعاء <span class="ltr-text">API</span> الطقس.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="py-4">
+                <h4 class="font-bold text-lg text-slate-800">
+                  نظرة تقنية على حلقة التفكير (<span class="ltr-text"
+                    >ReAct Loop</span
+                  >):
+                </h4>
+                <p class="mt-2 text-slate-700">
+                  يعمل الوكيل في حلقة مستمرة من التفكير والفعل والملاحظة، وهو
+                  إطار عمل يُعرف باسم
+                  <span class="ltr-text">ReAct</span> (Reasoning and Acting).
+                </p>
+                <div class="code-block mt-2">
+                  <span class="code-comment"
+                    >// User asks: "What is the main idea in the
+                    'Q3-Strategy.pdf' document?"</span
+                  ><br /><br />
+
+                  <span class="code-keyword">Thought:</span>
+                  <span class="code-string"
+                    >"The user is asking about a specific document. I cannot
+                    answer from my general knowledge. I need to use my document
+                    search tool."</span
+                  ><br />
+                  <span class="code-keyword">Action:</span>
+                  <span class="code-function">search_vector_db</span>(<span
+                    class="code-variable"
+                    >query</span
+                  >=<span class="code-string"
+                    >"main idea of Q3-Strategy.pdf"</span
+                  >)<br /><br />
+
+                  <span class="code-comment">// Tool returns a result</span
+                  ><br />
+                  <span class="code-keyword">Observation:</span>
+                  <span class="code-string"
+                    >"Retrieved chunk: 'The core of our Q3 strategy is to focus
+                    on expanding into the European market...'"</span
+                  ><br /><br />
+
+                  <span class="code-keyword">Thought:</span>
+                  <span class="code-string"
+                    >"I have found the relevant information. I can now formulate
+                    a final answer based on this observation."</span
+                  ><br />
+                  <span class="code-keyword">Final Answer:</span>
+                  <span class="code-string"
+                    >"The main idea in the 'Q3-Strategy.pdf' document is to
+                    focus on expanding into the European market."</span
+                  >
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- RAG Dropdown -->
+          <details
+            class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden"
+          >
+            <summary
+              class="p-6 flex justify-between items-center cursor-pointer"
+            >
+              <h3 class="text-xl font-bold flex items-center">
+                🧠 تقنية <span class="ltr-text mx-2">RAG</span>
+              </h3>
+              <div class="arrow text-2xl font-bold text-purple-600">›</div>
+            </summary>
+            <div
+              class="px-6 pb-6 border-t border-slate-200 divide-y divide-slate-200"
+            >
+              <div class="py-4">
+                <p class="mt-4 text-slate-700">
+                  النماذج اللغوية الكبيرة (<span class="ltr-text">LLMs</span>)
+                  تشبه المؤرخين العباقرة الذين قرأوا كل كتاب تم نشره حتى عام
+                  2023. إنهم أذكياء بشكل لا يصدق، لكن لديهم مشكلتان كبيرتان:
+                </p>
+                <ul class="list-disc list-inside mt-2 space-y-1 text-slate-600">
+                  <li>
+                    <strong>معلوماتهم قديمة:</strong> إذا سألتهم عن أخبار الأمس،
+                    سيقولون "لا أعرف".
+                  </li>
+                  <li>
+                    <strong>يمكن أن "يهلوسوا":</strong> إذا لم يعرفوا الإجابة،
+                    قد يخترعون واحدة بثقة تامة!
+                  </li>
+                </ul>
+                <p class="mt-2 text-slate-700">
+                  تقنية <span class="ltr-text">RAG</span> (Retrieval-Augmented
+                  Generation) هي الحل. إنها ببساطة مثل أن تعطي المؤرخ "جريدة
+                  اليوم" (معلومات من <span class="ltr-text">VectorDB</span>) قبل
+                  أن تطرح عليه سؤالك، وتطلب منه أن يبني إجابته على ما جاء في
+                  الجريدة فقط.
+                </p>
+              </div>
+              <div class="py-4">
+                <h4 class="font-bold text-lg text-slate-800">
+                  العملية من خطوتين:
+                </h4>
+                <ul
+                  class="list-decimal list-inside mt-2 space-y-2 text-slate-600"
+                >
+                  <li>
+                    <strong
+                      >الاسترداد (<span class="ltr-text">Retrieval</span
+                      >):</strong
+                    >
+                    عندما تطرح سؤالاً، يقوم النظام بالبحث في
+                    <span class="ltr-text">VectorDB</span> عن أكثر المستندات صلة
+                    بسؤالك. هذه هي "قصاصات الجريدة" التي سنسلمها للمؤرخ.
+                  </li>
+                  <li>
+                    <strong
+                      >التعزيز والتوليد (<span class="ltr-text"
+                        >Augmented Generation</span
+                      >):</strong
+                    >
+                    هذه هي الخطوة السحرية. بدلاً من إرسال سؤالك فقط إلى النموذج،
+                    نقوم ببناء "موجه معزز" (<span class="ltr-text"
+                      >Augmented Prompt</span
+                    >) يتضمن السياق الذي وجدناه.
+                  </li>
+                </ul>
+              </div>
+              <div class="py-4">
+                <h4 class="font-bold text-lg text-slate-800">
+                  مثال تقني: الفرق بين الموجه العادي والمعزز
+                </h4>
+                <div class="code-block mt-2">
+                  <span class="code-comment"
+                    >// User asks: "What are the key risks for Project
+                    Alpha?"</span
+                  ><br /><br />
+
+                  <span class="code-comment">// -- WITHOUT RAG --</span><br />
+                  <span class="code-comment"
+                    >// The LLM gets a simple, context-free prompt. It might
+                    hallucinate.</span
+                  ><br />
+                  <span class="code-variable">prompt_without_rag</span> =
+                  <span class="code-string"
+                    >"What are the key risks for Project Alpha?"</span
+                  >;<br /><br />
+
+                  <span class="code-comment">// -- WITH RAG --</span><br />
+                  <span class="code-comment"
+                    >// 1. First, we retrieve relevant context from our
+                    VectorDB.</span
+                  ><br />
+                  <span class="code-variable">retrieved_context</span> =
+                  <span class="code-string"
+                    >"From meeting_notes.pdf: Project Alpha's primary risk is
+                    supply chain disruption from our main vendor in Asia. A
+                    secondary risk is the upcoming regulatory change in
+                    Q4."</span
+                  ><br /><br />
+
+                  <span class="code-comment"
+                    >// 2. We build a new, much better prompt.</span
+                  ><br />
+                  <span class="code-variable">augmented_prompt</span> =
+                  <span class="code-string"
+                    >` Based ONLY on the following context, answer the user's
+                    question. Context: """ ${retrieved_context} """ User
+                    Question: "What are the key risks for Project Alpha?"
+                    `</span
+                  >;<br />
+                  <span class="code-comment"
+                    >// Now, the LLM has everything it needs to give a factual,
+                    non-hallucinated answer. It's a whole different game!</span
+                  >
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- VectorDB Dropdown -->
+          <details
+            class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden"
+          >
+            <summary
+              class="p-6 flex justify-between items-center cursor-pointer"
+            >
+              <h3 class="text-xl font-bold flex items-center">
+                📚 قاعدة بيانات <span class="ltr-text mx-2">VectorDB</span>
+              </h3>
+              <div class="arrow text-2xl font-bold text-purple-600">›</div>
+            </summary>
+            <div
+              class="px-6 pb-6 border-t border-slate-200 divide-y divide-slate-200"
+            >
+              <div class="py-4">
+                <p class="mt-4 text-slate-700">
+                  تخيل أن لديك مكتبة تقليدية. إذا طلبت من أمين المكتبة كتابًا عن
+                  "إصلاح المركبات"، ولكنه لا يجد هذا العنوان بالضبط، فسيعود خالي
+                  الوفاض، حتى لو كان لديه كتاب بعنوان "تصليح السيارات". هذا هو
+                  البحث بالكلمات الرئيسية، وهو محدود جدًا.
+                  <br /><br />
+                  قاعدة البيانات الفيكتورية (<span class="ltr-text"
+                    >VectorDB</span
+                  >) هي مثل أمين مكتبة فائق الذكاء. إنه لا يبحث عن الكلمات، بل
+                  يفهم "المعنى". عندما تطلب منه "إصلاح المركبات"، فإنه يفهم أنك
+                  تقصد نفس الشيء مثل "تصليح السيارات" ويحضر لك الكتاب الصحيح.
+                </p>
+              </div>
+
+              <div class="py-4">
+                <h4 class="font-bold text-lg text-slate-800">
+                  كيف تعمل؟ عن طريق "العناوين الدلالية"
+                </h4>
+                <p class="mt-2 text-slate-700">العملية بسيطة في مفهومها:</p>
+                <ul class="list-disc list-inside mt-2 space-y-1 text-slate-600">
+                  <li>
+                    <strong
+                      >التضمين (<span class="ltr-text">Embedding</span
+                      >):</strong
+                    >
+                    كل قطعة نص (مستند، فقرة) يتم تحويلها إلى سلسلة من الأرقام
+                    تسمى "متجه" (<span class="ltr-text">vector</span>). هذا
+                    المتجه هو بمثابة "عنوان دلالي" فريد للنص، يحدد موقعه في فضاء
+                    المعاني.
+                  </li>
+                  <li>
+                    <strong>البحث بالتشابه:</strong> عندما تطرح سؤالاً، يتم
+                    تحويله هو الآخر إلى "عنوان دلالي". ثم تطلب قاعدة البيانات من
+                    أمين المكتبة الذكي: "ابحث لي عن العناوين الأقرب لهذا العنوان
+                    الجديد".
+                  </li>
+                </ul>
+              </div>
+              <div class="py-4">
+                <h4 class="font-bold text-lg text-slate-800">مثال تقني:</h4>
+                <div class="code-block mt-2">
+                  <span class="code-comment">// 1. We have a document.</span
+                  ><br />
+                  <span class="code-variable">doc_text</span> =
+                  <span class="code-string"
+                    >"Our Q3 revenue showed a 15% growth, driven by the new
+                    European market."</span
+                  >;<br /><br />
+
+                  <span class="code-comment"
+                    >// 2. We convert it to a "semantic address" (a
+                    vector).</span
+                  ><br />
+                  <span class="code-variable">doc_vector</span> =
+                  <span class="code-function">embedding_model.embed</span>(<span
+                    class="code-variable"
+                    >doc_text</span
+                  >);<br />
+                  <span class="code-function">vector_db.add</span>(<span
+                    class="code-variable"
+                    >doc_vector</span
+                  >, <span class="code-variable">doc_text</span>);<br /><br />
+
+                  <span class="code-comment"
+                    >// 3. A user asks a question with different words but
+                    similar meaning.</span
+                  ><br />
+                  <span class="code-variable">user_question</span> =
+                  <span class="code-string"
+                    >"How did our finances do last quarter in Europe?"</span
+                  >;<br />
+                  <span class="code-variable">question_vector</span> =
+                  <span class="code-function">embedding_model.embed</span>(<span
+                    class="code-variable"
+                    >user_question</span
+                  >);<br /><br />
+
+                  <span class="code-comment"
+                    >// 4. Find the document with the closest address.</span
+                  ><br />
+                  <span class="code-variable">results</span> =
+                  <span class="code-function">vector_db.find_nearest</span
+                  >(<span class="code-variable">question_vector</span>);<br />
+                  <span class="code-comment"
+                    >// The result is our original document. Simple, powerful,
+                    and no keyword fuss.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Step 2: Prerequisites Setup -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 border-b-4 border-purple-600 pb-2">
+          الخطوة 2: إعداد المتطلبات وبيانات الاعتماد (Prerequisites &
+          Credentials)
+        </h2>
+        <div class="space-y-4">
+          <!-- Supabase Setup -->
+          <details
+            class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden"
+          >
+            <summary
+              class="p-6 flex justify-between items-center cursor-pointer"
+            >
+              <h3 class="text-xl font-bold">
+                1. إعداد <span class="ltr-text">Supabase</span> (قاعدة البيانات
+                والذاكرة)
+              </h3>
+              <div class="arrow text-2xl font-bold text-purple-600">›</div>
+            </summary>
+            <div
+              class="px-6 pb-6 border-t border-slate-200 divide-y divide-slate-200"
+            >
+              <div class="py-4">
+                <h4 class="font-bold text-lg text-green-700">
+                  أ. تهيئة قاعدة البيانات (تنفيذ أمر SQL)
+                </h4>
+                <p class="mt-2 text-slate-700">
+                  هذه خطوة أساسية لإنشاء الجداول والوظائف اللازمة في قاعدة
+                  بياناتك.
+                  <strong class="text-red-600"
+                    >يجب تنفيذها مرة واحدة فقط لكل مشروع.</strong
+                  >
+                </p>
+                <ol
+                  class="list-decimal list-inside mt-2 space-y-2 text-slate-600"
+                >
+                  <li>
+                    اذهب إلى لوحة تحكم مشروعك في
+                    <span class="ltr-text">Supabase</span>.
+                  </li>
+                  <li>
+                    من القائمة الجانبية، اختر
+                    <span class="ltr-text">SQL Editor</span> (أيقونة تشبه ورقة
+                    بها علامة <span class="ltr-text">&lt;/&gt;</span>).
+                  </li>
+                  <li>اضغط على <span class="ltr-text">+ New query</span>.</li>
+                  <li>انسخ الكود التالي بالكامل والصقه في المحرر.</li>
+                  <div class="code-block my-2">
+                    <pre><code><span class="code-comment">-- Enable the pgvector extension</span>
+<span class="code-keyword">create extension</span> <span class="code-function">vector</span>;
+<span class="code-comment">-- Create a table for your documents</span>
+<span class="code-keyword">create table</span> documents (
+  id <span class="code-function">bigserial primary key</span>,
+  content <span class="code-function">text</span>,
+  metadata <span class="code-function">jsonb</span>,
+  embedding <span class="code-function">vector</span>(1536)
+);
+<span class="code-comment">-- Create a function to search for documents</span>
+<span class="code-keyword">create function</span> match_documents(
+    query_embedding vector(1536),
+    match_count int,
+    filter jsonb DEFAULT '{}'
+)
+<span class="code-keyword">returns table</span> (
+    id bigint,
+    content text,
+    metadata jsonb,
+    similarity float
+)
+<span class="code-keyword">language</span> plpgsql
+<span class="code-keyword">as</span> $$
+<span class="code-keyword">begin</span>
+  <span class="code-keyword">return query</span>
+  <span class="code-keyword">select</span>
+    id,
+    content,
+    metadata,
+    1 - (documents.embedding <=> query_embedding) <span class="code-keyword">as</span> similarity
+  <span class="code-keyword">from</span> documents
+  <span class="code-keyword">where</span> metadata @> filter
+  <span class="code-keyword">order by</span> documents.embedding <=> query_embedding
+  <span class="code-keyword">limit</span> match_count;
+<span class="code-keyword">end</span>;
+$$;</code></pre>
+                  </div>
+                  <li>
+                    اضغط على الزر الأخضر الكبير
+                    <span class="ltr-text">RUN</span> في أسفل يمين المحرر.
+                  </li>
+                </ol>
+              </div>
+              <div class="py-4">
+                <h4 class="font-bold text-lg text-green-700">
+                  ب. استخراج بيانات الاعتماد (Credentials)
+                </h4>
+                <p class="mt-2 text-slate-700">
+                  ستحتاج إلى مجموعتين من بيانات الاعتماد من
+                  <span class="ltr-text">Supabase</span>:
+                </p>
+                <ul class="list-disc list-inside mt-2 space-y-2 text-slate-600">
+                  <li>
+                    <strong
+                      >بيانات <span class="ltr-text">API</span> (لعقد
+                      <span class="ltr-text">Vector Store</span>):</strong
+                    >
+                    <ol class="list-decimal list-inside ml-4">
+                      <li>
+                        اذهب إلى
+                        <span class="ltr-text">Project Settings</span> (أيقونة
+                        الترس ⚙️).
+                      </li>
+                      <li>اختر قسم <span class="ltr-text">API</span>.</li>
+                      <li>
+                        ستجد <span class="ltr-text">Project URL</span> و
+                        <span class="ltr-text">Project API Keys</span>. انسخ الـ
+                        <span class="ltr-text">URL</span> و مفتاح
+                        <span class="ltr-text">anon public</span>.
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <strong
+                      >بيانات <span class="ltr-text">PostgreSQL</span> (لعقدة
+                      <span class="ltr-text">Chat Memory</span>):</strong
+                    >
+                    <ol class="list-decimal list-inside ml-4">
+                      <li>
+                        اذهب إلى لوحة تحكم مشروعك في
+                        <span class="ltr-text">Supabase</span>.
+                      </li>
+                      <li>
+                        في الشريط العلوي (<span class="ltr-text">navbar</span>)،
+                        اضغط على زر <span class="ltr-text">Connect</span>.
+                      </li>
+                      <li>
+                        ستظهر نافذة منبثقة بعنوان
+                        <span class="ltr-text">Connect to your project</span>.
+                      </li>
+                      <li>
+                        مرر للأسفل حتى تصل إلى قسم
+                        <span class="ltr-text">Transaction pooler</span>.
+                      </li>
+                      <li>
+                        اضغط على <span class="ltr-text">View parameters</span>.
+                        ستظهر لك جميع تفاصيل الاتصال التي تحتاجها (Host,
+                        Database, User, Port, Password).
+                      </li>
+                    </ol>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- OpenAI Setup -->
+          <details
+            class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden"
+          >
+            <summary
+              class="p-6 flex justify-between items-center cursor-pointer"
+            >
+              <h3 class="text-xl font-bold">
+                2. إعداد <span class="ltr-text">OpenAI</span> (محرك الذكاء)
+              </h3>
+              <div class="arrow text-2xl font-bold text-purple-600">›</div>
+            </summary>
+            <div class="px-6 pb-6 border-t border-slate-200">
+              <p class="mt-4 text-slate-700">
+                تحتاج فقط إلى مفتاح <span class="ltr-text">API</span> واحد
+                لاستخدامه في جميع عقد <span class="ltr-text">OpenAI</span>.
+              </p>
+              <ol
+                class="list-decimal list-inside mt-2 space-y-2 text-slate-600"
+              >
+                <li>
+                  سجل الدخول إلى حسابك في
+                  <span class="ltr-text">platform.openai.com</span>.
+                </li>
+                <li>
+                  من القائمة الجانبية، اذهب إلى
+                  <span class="ltr-text">API Keys</span>.
+                </li>
+                <li>
+                  اضغط على
+                  <span class="ltr-text">+ Create new secret key</span>.
+                </li>
+                <li>
+                  أعط المفتاح اسمًا (مثلاً
+                  <span class="ltr-text">n8n-RAG-Key</span>) واضغط
+                  <span class="ltr-text">Create secret key</span>.
+                </li>
+                <li>
+                  <strong class="text-red-600"
+                    >انسخ المفتاح فورًا واحفظه في مكان آمن.</strong
+                  >
+                  لن تتمكن من رؤيته مرة أخرى.
+                </li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- Google Drive Setup -->
+          <details
+            class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden"
+          >
+            <summary
+              class="p-6 flex justify-between items-center cursor-pointer"
+            >
+              <h3 class="text-xl font-bold">
+                3. إعداد <span class="ltr-text">Google Drive API</span> (مخزن
+                الملفات)
+              </h3>
+              <div class="arrow text-2xl font-bold text-purple-600">›</div>
+            </summary>
+            <div class="px-6 pb-6 border-t border-slate-200">
+              <p class="mt-4 text-slate-700">
+                تعتبر عملية إعداد
+                <span class="ltr-text">Google Drive API</span> دقيقة وتتطلب عدة
+                خطوات في <span class="ltr-text">Google Cloud Console</span>.
+              </p>
+              <div
+                class="mt-4 bg-purple-50 border-r-4 border-purple-500 p-4 rounded-lg"
+              >
+                <p class="text-purple-900">
+                  <strong>توجيه:</strong> للحصول على شرح مرئي ومفصل لهذه الخطوة،
+                  يرجى الرجوع إلى قسم الفيديوهات في الـ
+                  <span class="ltr-text">Classroom</span> تحت عنوان
+                  <span class="ltr-text">"Node Setup"</span>. ستجد فيديو مخصصًا
+                  يشرح عملية إعداد
+                  <span class="ltr-text">Google Drive</span> بالكامل.
+                </p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <footer class="text-center mt-20">
+        <p
+          class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600"
+        >
+          اكتمل الإعداد 🎉
+        </p>
+        <p class="mt-4 text-xl text-slate-700">
+          سير العمل الخاص بك جاهز الآن. قم بتفعيله (<span class="ltr-text"
+            >Activate</span
+          >) وابدأ في استخدامه.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

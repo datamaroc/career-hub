@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دليل بناء وكيل ذكاء اصطناعي للتقديم على الوظائف</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+        scroll-behavior: smooth;
+        background-color: #f8fafc;
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #2563eb, #3b82f6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .section-card {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border-radius: 1rem;
+      }
+      .section-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+      }
+      .step-title {
+        display: flex;
+        align-items: center;
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .step-number {
+        background: linear-gradient(to bottom right, #2563eb, #3b82f6);
+        color: white;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 900;
+        flex-shrink: 0;
+        margin-left: 1rem;
+        box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+      }
+      /* New Dropdown Styles */
+      details {
+        background-color: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.75rem;
+        margin-bottom: 1rem;
+        transition: box-shadow 0.3s;
+        overflow: hidden;
+      }
+      details[open] {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      summary {
+        padding: 1.25rem;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.125rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none; /* Remove default marker */
+        transition: background-color 0.2s;
+      }
+      summary:hover {
+        background-color: #f8fafc;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      .summary-arrow {
+        transition: transform 0.3s ease-in-out;
+        color: #3b82f6;
+      }
+      details[open] .summary-arrow {
+        transform: rotate(180deg);
+      }
+      .details-content {
+        padding: 0 1.25rem 1.25rem 1.25rem;
+        border-top: 1px solid #e2e8f0;
+      }
+      .explanation-block {
+        margin-top: 1rem;
+      }
+      .explanation-block h4 {
+        font-weight: 700;
+        color: #1e3a8a;
+        margin-bottom: 0.5rem;
+      }
+      .explanation-block p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #475569;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800">
+    <div class="container mx-auto p-4 md:p-8 lg:p-12">
+      <!-- Header -->
+      <header class="text-center mb-12 md:mb-20">
+        <h1
+          class="text-4xl md:text-5xl font-black mb-4 tracking-tight text-slate-900"
+        >
+          وكيلك الذكي للتقديم على <span class="gradient-text">الوظائف</span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+          دليلك الكامل لبناء أتمتة تحلل سيرتك الذاتية ووصف الوظيفة، تكتب بريدًا
+          إلكترونيًا مخصصًا، وتقدم طلبك تلقائيًا.
+        </p>
+      </header>
+
+      <!-- Introduction -->
+      <section class="mb-12 md:mb-16 section-card p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
+          لماذا هذا المشروع مهم؟
+        </h2>
+        <p class="text-slate-700 leading-relaxed">
+          التقديم على الوظائف عملية مرهقة. يتطلب كل طلب تخصيص رسالتك لتناسب
+          الوصف الوظيفي. هذا المشروع يحل هذه المشكلة. سنبني معًا وكيلاً ذكيًا
+          يقوم بكل العمل الشاق: يقرأ سيرتك الذاتية، يحلل متطلبات الوظيفة، ويكتب
+          بريدًا إلكترونيًا احترافيًا ومقنعًا، ثم يرسله مع سيرتك الذاتية مرفقة.
+          <br /><br />
+          هذا ليس مجرد أداة لتوفير الوقت، بل هو
+          <strong>مشروع قوي يمكنك إضافته إلى معرض أعمالك (Portfolio)</strong>
+          يثبت قدرتك على دمج الذكاء الاصطناعي مع الأتمتة لحل مشاكل حقيقية.
+        </p>
+      </section>
+
+      <!-- Technical Terms Glossary -->
+      <section class="mb-12 md:mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-900"
+        >
+          معجم المصطلحات التقنية
+        </h2>
+
+        <details>
+          <summary
+            class="flex items-center justify-between gap-2 cursor-pointer"
+          >
+            <span
+              >البيانات الثنائية (Binary Data) مقابل النصية (Text Data)</span
+            >
+            <svg
+              class="w-6 h-6 shrink-0 summary-arrow"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </summary>
+          <div class="details-content mt-4">
+            <div class="explanation-block">
+              <h4 class="font-semibold mb-2">شرح تقني</h4>
+              <p>
+                <strong>Binary Data</strong> هو تمثيل للبيانات في نظام العد
+                الثنائي (0 و 1)، وهو الشكل الأساسي الذي تفهمه أجهزة الكمبيوتر
+                لتخزين أي نوع من الملفات (صور، مستندات PDF، صوت). أما
+                <strong>Text Data</strong> فهو سلسلة من الأحرف (Characters)
+                المرمزة وفقًا لمعيار معين مثل UTF-8.
+              </p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary
+            class="flex items-center justify-between gap-2 cursor-pointer"
+          >
+            <span>AI Agents</span>
+            <svg
+              class="w-6 h-6 shrink-0 summary-arrow"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </summary>
+          <div class="details-content">
+            <div class="explanation-block">
+              <h4>شرح مبسط</h4>
+              <p>
+                تخيل أن النموذج اللغوي (LLM) هو طاهٍ ماهر. يمكنك أن تطلب منه
+                وصفة (تلقين بسيط). لكن **الوكيل (Agent)** هو رئيس الطهاة (Chef)
+                الذي لا يكتفي بالوصفات، بل يمكنه استخدام أدوات (سكين، فرن، خلاط)
+                وذاكرته للابتكار واتخاذ قرارات معقدة لطهي وجبة كاملة.
+              </p>
+            </div>
+            <div class="explanation-block">
+              <h4>شرح تقني</h4>
+              <p>
+                الـ <strong>Agent</strong> هو نظام يستخدم نموذجًا لغويًا كبيرًا
+                (LLM) كـ "محرك تفكير" (Reasoning Engine). على عكس الاستدعاء
+                المباشر للـ LLM، يمكن للوكيل اتخاذ سلسلة من القرارات، واستخدام
+                "أدوات" (Tools) - وهي وظائف يمكنها التفاعل مع العالم الخارجي
+                (مثل البحث على الويب أو الوصول إلى API) - للوصول إلى الإجابة
+                النهائية. هذا يسمح له بحل مشاكل متعددة الخطوات وأكثر تعقيدًا.
+              </p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary
+            class="flex items-center justify-between gap-2 cursor-pointer"
+          >
+            <span>هندسة التلقين (Prompt Engineering)</span>
+            <svg
+              class="w-6 h-6 shrink-0 summary-arrow"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </summary>
+          <div class="details-content">
+            <div class="explanation-block">
+              <h4>شرح مبسط</h4>
+              <p>
+                هي ببساطة فن التحدث مع الذكاء الاصطناعي. بدلاً من أن تقول "اكتب
+                رسالة"، أنت تعطيه تعليمات مفصلة مثل: "تخيل أنك مستشار مهني خبير،
+                اكتب رسالة احترافية وموجزة لا تتجاوز 150 كلمة، وركز على هذه
+                المهارات الثلاث...".
+              </p>
+            </div>
+            <div class="explanation-block">
+              <h4>شرح تقني</h4>
+              <p>
+                <strong>Prompt Engineering</strong> هي عملية تصميم وهيكلة
+                المدخلات النصية (Prompts) التي تُعطى للنماذج اللغوية الكبيرة
+                (LLMs) للحصول على مخرجات دقيقة وموجهة. في هذا المشروع، نستخدم
+                "رسالة نظام" (System Message) في عُقدة `AI Agent` لتحديد السياق،
+                الشخصية (Persona)، القواعد، والشكل النهائي للمخرجات، مما يقلل من
+                العشوائية ويزيد من موثوقية النتائج بشكل كبير.
+              </p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary
+            class="flex items-center justify-between gap-2 cursor-pointer"
+          >
+            <span>تحليل ومعالجة النصوص (Parsing)</span>
+            <svg
+              class="w-6 h-6 shrink-0 summary-arrow"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </summary>
+          <div class="details-content">
+            <div class="explanation-block">
+              <h4>شرح مبسط</h4>
+              <p>
+                تخيل أن الذكاء الاصطناعي أعطاك صفحة كاملة من الملاحظات.
+                **التحليل (Parsing)** هو عملية أخذ هذه الصفحة وتقسيمها إلى
+                عناوين ونقاط منظمة في جدول، بحيث يمكنك استخدام كل معلومة في
+                مكانها الصحيح.
+              </p>
+            </div>
+            <div class="explanation-block">
+              <h4>شرح تقني</h4>
+              <p>
+                <strong>Parsing</strong> هو عملية تحليل سلسلة من البيانات
+                (String) - غالبًا ما تكون نصية - لتحديد بنيتها النحوية
+                والمنطقية، بهدف تحويلها إلى هيكل بيانات أكثر قابلية للاستخدام
+                (مثل JSON object أو array). في عُقدة `Code`، نستخدم JavaScript
+                لمعالجة النص الناتج من الـ LLM، ونفصل بين `Subject` و `Message`
+                باستخدام محددات (delimiters) مثل `\n` (new line) وكلمات مفتاحية،
+                مما يتيح لنا تمرير كل جزء إلى الحقل المناسب في عُقدة `Gmail`.
+              </p>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- Setup Guide -->
+      <section class="mb-12 md:mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-900"
+        >
+          دليل الإعداد الكامل (خطوة بخطوة)
+        </h2>
+
+        <div class="section-card p-6 md:p-8 mb-8">
+          <h3 class="step-title">
+            <div class="step-number">1</div>
+            الخطوة الأولى: استيراد ورشة العمل
+          </h3>
+          <p class="text-slate-600 mb-4">
+            الآن، لنقم بإدخال ورشة العمل الجاهزة إلى حسابك في n8n.
+          </p>
+          <ol class="list-decimal pr-8 space-y-2 text-slate-700">
+            <li>
+              من لوحة تحكم n8n الرئيسية، انقر على زر
+              <strong>"Add workflow"</strong>.
+            </li>
+            <li>ستجد خيار <strong>"Import from file"</strong>. انقر عليه.</li>
+            <li>
+              اختر ملف
+              <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded-md"
+                >ai job application.json</code
+              >
+              من جهازك.
+            </li>
+            <li>
+              بمجرد الاستيراد، سترى ورشة العمل الكاملة جاهزة أمامك. لا تقلق من
+              الأخطاء التي قد تظهر، سنقوم بحلها في الخطوة التالية.
+            </li>
+          </ol>
+        </div>
+
+        <div class="section-card p-6 md:p-8 mb-8">
+          <h3 class="step-title">
+            <div class="step-number">2</div>
+            الخطوة الثانية: إعداد بيانات الاعتماد (Credentials)
+          </h3>
+          <p class="text-slate-600 mb-4">
+            هذه هي أهم خطوة لجعل ورشة العمل تعمل. تحتاج إلى ربط حساباتك في
+            OpenAI و Gmail.
+          </p>
+
+          <div class="key-concept-card mb-4">
+            <h4>إعداد OpenAI API:</h4>
+            <ol class="list-decimal pr-6 mt-2 text-slate-600">
+              <li>
+                ابحث عن عُقدة <strong>"OpenAI Chat Model"</strong> في ورشة العمل
+                وانقر عليها.
+              </li>
+              <li>
+                في حقل "Credential"، انقر على القائمة المنسدلة واختر
+                <strong>"Create New"</strong>.
+              </li>
+              <li>أدخل مفتاح الـ API الخاص بك من OpenAI في الحقل المخصص.</li>
+              <li>احفظ الـ Credential. ستختفي علامة الخطأ من العُقدة.</li>
+            </ol>
+            <blockquote
+              class="mt-4 border-r-4 border-blue-400 bg-blue-50 p-3 rounded-lg text-blue-800"
+            >
+              <strong>مساعدة إضافية:</strong> لمشاهدة شرح تفصيلي لهذه الخطوة،
+              يمكنك مشاهدة الفيديو المخصص في قسم
+              <strong>"Setup Nodes"</strong> في الـ Classroom بمجتمعنا على
+              Skool.
+            </blockquote>
+          </div>
+
+          <div class="key-concept-card">
+            <h4>إعداد Gmail API:</h4>
+            <ol class="list-decimal pr-6 mt-2 text-slate-600">
+              <li>ابحث عن عُقدة <strong>"Gmail Send"</strong> وانقر عليها.</li>
+              <li>
+                في حقل "Credential"، انقر على القائمة المنسدلة واختر
+                <strong>"Create New"</strong>.
+              </li>
+              <li>
+                سيتم توجيهك إلى صفحة تسجيل دخول Google. اختر حساب Gmail الذي
+                تريد الإرسال منه.
+              </li>
+              <li>
+                امنح n8n الأذونات اللازمة لإرسال البريد الإلكتروني نيابة عنك.
+              </li>
+              <li>احفظ الـ Credential. الآن ورشة العمل جاهزة تقنيًا!</li>
+            </ol>
+            <blockquote
+              class="mt-4 border-r-4 border-blue-400 bg-blue-50 p-3 rounded-lg text-blue-800"
+            >
+              <strong>مساعدة إضافية:</strong> لمشاهدة شرح تفصيلي لهذه الخطوة،
+              يمكنك مشاهدة الفيديو المخصص في قسم
+              <strong>"Setup Nodes"</strong> في الـ Classroom بمجتمعنا على
+              Skool.
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workflow Breakdown -->
+      <section>
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-10 text-slate-900"
+        >
+          كيف تعمل الأتمتة؟ (شرح تفصيلي لكل عُقدة)
+        </h2>
+        <div class="space-y-8">
+          <div class="section-card p-6 md:p-8">
+            <h3 class="step-title">
+              <div class="step-number">A</div>
+              عُقدة Form Trigger (واجهة المستخدم)
+            </h3>
+            <p class="text-slate-600">
+              هي البوابة الأمامية للأتمتة. تنشئ صفحة ويب بسيطة بها حقول لإدخال
+              معلومات الوظيفة (البريد الإلكتروني، المسمى، الوصف) وزر لرفع ملف
+              سيرتك الذاتية. عند النقر على "Submit"، يتم تمرير كل هذه البيانات
+              إلى العُقدة التالية.
+            </p>
+          </div>
+
+          <div class="section-card p-6 md:p-8">
+            <h3 class="step-title">
+              <div class="step-number">B</div>
+              عُقدة Extract from File (قارئ الـ CV)
+            </h3>
+            <p class="text-slate-600">
+              تستلم هذه العُقدة ملف الـ CV كـ **بيانات ثنائية (Binary Data)**.
+              مهمتها هي فتح هذا الملف وقراءة كل الكلمات الموجودة بداخله، ثم
+              إخراجها كـ **بيانات نصية (Text Data)**.
+            </p>
+          </div>
+
+          <div class="section-card p-6 md:p-8">
+            <h3 class="step-title">
+              <div class="step-number">C</div>
+              عُقدة AI Agent (العقل المدبر)
+            </h3>
+            <p class="text-slate-600">
+              هذا هو قلب العملية. يقوم هذا الوكيل الذكي (AI Agent) بتنفيذ مهمة
+              معقدة: يحلل المدخلات، يتبع التعليمات، يقارن بين الـ CV والوصف
+              الوظيفي، ثم يكتب المحتوى المخصص.
+            </p>
+          </div>
+
+          <div class="section-card p-6 md:p-8">
+            <h3 class="step-title">
+              <div class="step-number">D</div>
+              عُقدة Code (مُنظّم المحتوى)
+            </h3>
+            <p class="text-slate-600">
+              تستخدم كود JavaScript لتقسيم النص الناتج من الذكاء الاصطناعي
+              (Parsing) إلى `subject` و `message`، مع الحفاظ على ملف الـ CV
+              الأصلي (البيانات الثنائية) جاهزًا للإرفاق.
+            </p>
+          </div>
+
+          <div class="section-card p-6 md:p-8">
+            <h3 class="step-title">
+              <div class="step-number">E</div>
+              عُقدة Gmail (مرسل البريد)
+            </h3>
+            <p class="text-slate-600">
+              هي المسؤولة عن التنفيذ النهائي. تأخذ كل الأجزاء المنظمة - بريد
+              الشركة، العنوان، المحتوى، وملف الـ CV المرفق - وترسل البريد
+              الإلكتروني.
+            </p>
+          </div>
+
+          <div class="section-card p-6 md:p-8">
+            <h3 class="step-title">
+              <div class="step-number">F</div>
+              عُقدة Form (رسالة التأكيد)
+            </h3>
+            <p class="text-slate-600">
+              بعد إرسال البريد بنجاح، تعرض هذه العُقدة رسالة تأكيد بسيطة على
+              شاشتك، لإعلامك بأن طلبك قد أُرسل بنجاح.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final Step -->
+      <section class="mt-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+          الخطوة النهائية: التشغيل والإطلاق
+        </h2>
+        <div class="max-w-3xl mx-auto section-card p-8">
+          <div class="step-number mx-auto mb-4">🚀</div>
+          <p class="text-slate-600 leading-relaxed">
+            بعد تفعيل ورشة العمل بالنقر على <strong>"Activate"</strong>، سيعطيك
+            n8n رابطًا فريدًا للنموذج (Form URL). احتفظ بهذا الرابط. في كل مرة
+            تريد التقديم على وظيفة، فقط افتح هذا الرابط، املأ الحقول، وارفع
+            سيرتك الذاتية. سيقوم وكيلك الذكي بالباقي. <br /><br />
+            <strong
+              >ألف مبروك، لقد بنيت أداة قوية ستغير طريقة تقديمك للوظائف</strong
+            >
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center mt-20 pt-10 border-t border-slate-200">
+        <p class="text-slate-500">
+          نأمل أن يكون هذا الدليل الشامل قد أوضح كل خطوة. هذا مشروع رائع لإضافته
+          إلى معرض أعمالك (Portfolio).
+        </p>
+        <p class="text-slate-500">
+          لا تترددوا في طرح أي أسئلة في المجتمع. بالتوفيق
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
