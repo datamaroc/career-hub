@@ -232,40 +232,16 @@
               </h3>
               <p class="text-gray-600">
                 هنا يتم تحويل الكلمات إلى صورة. تقوم هذه العُقدة بإرسال **طلب
-                HTTP** إلى واجهة برمجة تطبيقات Google AI لتوليد الصور. يتم وضع
-                تلقين الصورة (الذي تم إنشاؤه في الخطوة 2) في "جسم" الطلب
-                (Request Body). يرد النموذج بصورة مرمزة بنظام Base64.
+                HTTP** إلى واجهة برمجة تطبيقات لتوليد الصور. يتم وضع تلقين
+                الصورة (الذي تم إنشاؤه في الخطوة 2) في "body" الطلب. يرد النموذج
+                بصورة.
               </p>
             </div>
           </div>
 
-          <!-- Step 5: Data Processing (Split, Filter, Convert) -->
+          <!-- Step 6`: HTTP Request (Cloudinary) -->
           <div class="section-card p-6 flex items-start gap-6">
             <div class="step-number">5</div>
-            <div class="flex-grow">
-              <h3 class="text-2xl font-bold mb-2">
-                ⚙️ عُقد معالجة البيانات (Split, Filter, Convert)
-              </h3>
-              <p class="text-gray-600">
-                هذه مجموعة من العُقد المساعدة التي تعمل معًا لتنظيف المخرجات:
-              </p>
-              <ul class="list-disc pr-5 mt-2 text-gray-600 space-y-1">
-                <li><strong>Split Out:</strong> تفصل أجزاء استجابة النموذج.</li>
-                <li>
-                  <strong>Filter:</strong> تعزل الجزء الذي يحتوي على بيانات
-                  الصورة فقط.
-                </li>
-                <li>
-                  <strong>Convert to File:</strong> تحول نص Base64 إلى ملف صورة
-                  ثنائي حقيقي.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Step 6: HTTP Request (Cloudinary) -->
-          <div class="section-card p-6 flex items-start gap-6">
-            <div class="step-number">6</div>
             <div class="flex-grow">
               <h3 class="text-2xl font-bold mb-2">
                 ☁️ عُقدة HTTP Request (استضافة الصورة)
@@ -278,9 +254,9 @@
             </div>
           </div>
 
-          <!-- Step 7: Instagram Publishing -->
+          <!-- Step 6: Instagram Publishing -->
           <div class="section-card p-6 flex items-start gap-6">
-            <div class="step-number">7</div>
+            <div class="step-number">6</div>
             <div class="flex-grow">
               <h3 class="text-2xl font-bold mb-2">
                 📸 عُقد Instagram (النشر الفعلي)
@@ -303,9 +279,9 @@
             </div>
           </div>
 
-          <!-- Step 8: Telegram Confirmation -->
+          <!-- Step 7: Telegram Confirmation -->
           <div class="section-card p-6 flex items-start gap-6">
-            <div class="step-number">8</div>
+            <div class="step-number">7</div>
             <div class="flex-grow">
               <h3 class="text-2xl font-bold mb-2">
                 ✅ عُقدة Telegram (رسالة التأكيد)
